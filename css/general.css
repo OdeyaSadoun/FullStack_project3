@@ -1,0 +1,42 @@
+html {
+	font-family: sans-serif;
+	line-height: 1.15;
+	/* -ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%; */
+}
+
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  body {
+    background-color: rgb(253, 249, 245);
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+  }
+  
+  p {
+    color: rgb(92, 71, 52);
+  }
+  
+  .btn {
+    background-color: rgb(92, 71, 52);
+    color: white;
+    padding: 10px 80px;
+    border: none;
+    opacity: 0.8;
+    border: 1px #fff solid;
+  }
+  
+  .btn:hover {
+    background-color: #7bce37;
+  
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 50px;
+  }

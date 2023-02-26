@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aresto</title>
+    <link href="../css/general.css" rel="stylesheet" type="text/css" />
+    <link href="../css/header.css" rel="stylesheet" type="text/css" />
+    <link href="../css/home.css" rel="stylesheet" type="text/css" />
+    <link href="../css/login_signup.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+    <header>
+        <h1>
+            Aresto
+        </h1>
+    </header>
+
+
+    <div class="home" id="home">
+        <p class="hellotext">Hello Guest!</p>
+        <p class="hellotext">click to login or sign up</p>
+
+        <div id="buttons" class="buttons">
+            <button class="btn" onclick="showContext('login')">login</button>
+            <button class="btn" onclick="showContext('signup')">sign up</button>
+        </div>
+    </div>
+
+
+    <template id="login">
+        <div class="form">
+            <h2>Fill in the following details:</h2>
+            <form id="login_form">
+                <ul>
+                    <li>
+                        <label for="email"><b>Email:</b></label>
+                        <input class="text" type="email" placeholder="Enter your email" id="email" name="email"
+                            required>
+                    </li>
+
+                    <li>
+                        <label for="password"><b>Password:</b></label>
+                        <input class="text" type="password" placeholder="Enter your password" id="password"
+                            name="password" required>
+                    </li>
+
+                    <li class="buttons">
+                        <button type="button" id="submitbtn" name="submitbtn" class="btn"
+                            onclick="submitLogin()">Submit</button>
+                        <button type="reset" class="btn" value="Reset">Reset</button>
+                    </li>
+                    <a class="worngChoice" href="#" onclick="showContext('signup')">Not registered yet? Click here to register</a>
+                </ul>
+            </form>
+        </div>
+    </template>
+    <template id="signup">
+        <div class="form">
+            <h2>Fill in the following details:</h2>
+            <form id="signup_form" action="#login_form">
+                <ul class="list">
+                    <li>
+                        <label for="first_name"><b>First name:</b></label>
+                        <input class="text" type="text" placeholder="Enter your first name" id="first_name"
+                            name="first_name" required onchange="verifyName()">
+                    </li>
+
+                    <li>
+                        <label for="last_name"><b>Last name:</b></label>
+                        <input class="text" type="text" placeholder="Enter your last name" id="last_name"
+                            name="last_name" required onchange="verifyName()">
+                    </li>
+
+                    <li>
+                        <label for="phone"><b>Phone:</b></label>
+                        <input class="text" type="tel" id="phone" name="phone"
+                            placeholder="Enter your phone in the shape: XXX-XXXXXXX" pattern="[0-9]{3}-[0-9]{7}"
+                            required>
+                    </li>
+
+                    <li>
+                        <label for="email"><b>Email:</b></label>
+                        <input class="text" type="email" placeholder="Enter your email" id="email" name="email"
+                            required>
+                    </li>
+
+                    <li>
+                        <label for="password"><b>Password:</b></label>
+                        <input class="text" type="password" placeholder="Enter your password" id="password"
+                            name="password" required onchange="verifyPassword()">
+                    </li>
+
+
+                    <li>
+                        <label for="re_password"><b>Verify your password:</b></label>
+                        <input class="text" type="password" placeholder="Enter again your password" id="re_password"
+                            name="re_password" required onchange="confirmPassword()">
+                    </li>
+
+                    <span id='message'></span>
+
+                    <li class="buttons">
+                        <button type="button" id="submitbtn" name="submitbtn" class="btn"
+                            onclick="submitSignup()">Submit</button>
+                        <button type="reset" class="btn" value="Reset">Reset</button>
+                    </li>
+                    <a class="worngChoice" href="#" onclick="showContext('login')">registered user? Click here to connect</a>
+                </ul>
+            </form>
+        </div>
+    </template>
+
+
+
+    <script src="../js/other/login.js" type="text/javascript" defer></script>
+    <script src="../js/other/signup.js" type="text/javascript" defer></script>
+    <script src="../js/other/general.js" type="text/javascript" defer></script>
+
+
+
+
+</body>
+<footer></footer>
+
+</html>
