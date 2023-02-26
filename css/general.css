@@ -40,3 +40,28 @@ html {
     align-items: center;
     bottom: 50px;
   }
+
+  /* Navigation */
+nav {
+	background-color: #FFF;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+nav ul li {
+	list-style: none;
+	float: left;
+	font-size: 93%;
+}
+
+nav ul li a:link,
+nav ul li a:visited {
+	display: block;
+	padding: 10px 15px;
+	text-decoration: none;
+	color: #000;
+	border-right: 1px solid #8dd3d3;
+}
