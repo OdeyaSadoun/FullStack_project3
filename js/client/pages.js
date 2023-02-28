@@ -43,6 +43,7 @@ function showSignup() {
 }
 
 function showMenu() {
+    console.log('menuuu');
     var clon = document.getElementById('menu').content.cloneNode(true);
     document.body.removeChild(document.body.lastElementChild);
     document.body.appendChild(clon);
@@ -61,16 +62,19 @@ function showUpdateMeal() {
 }
 
 function showMain(){
-    document.getElementById('home').style.display = 'display';
+    document.getElementById('home').style.display = 'inline';
     document.body.removeChild(document.body.lastElementChild);
 }
 
 function showHomePage(){
     console.log("mainpage");
+    document.getElementById('button_nav_login').style.display = 'inline';
+    document.getElementById('button_nav_signup').style.display = 'inline';
+
 
     document.getElementById('button_nav_logout').style.display = 'none';
     document.getElementById('button_nav_menu').style.display = 'none';
-    document.getElementById('button_nav_add_meal').style.display = 'none';
+    // document.getElementById('button_nav_add_meal').style.display = 'none';
     document.getElementById('button_nav_update_menu').style.display = 'none';
 
     hideLogin();
@@ -122,11 +126,13 @@ function showMenuPage(){
     document.getElementById('button_nav_login').style.display = 'none';
     document.getElementById('button_nav_signup').style.display = 'none';
 
+    console.log('none');
 
-    document.getElementById('button_nav_logout').style.display = 'display';
-    document.getElementById('button_nav_menu').style.display = 'display';
-    document.getElementById('button_nav_add_meal').style.display = 'display';
-    document.getElementById('button_nav_update_menu').style.display = 'display';
+    document.getElementById('button_nav_logout').style.display = 'inline';
+    document.getElementById('button_nav_menu').style.display = 'inline';
+    document.getElementById('button_nav_add_meal').style.display = 'inline';
+    document.getElementById('button_nav_update_menu').style.display = 'inline';
+    console.log('display');
 
     hideMainPage();
     hideLogin();
@@ -135,6 +141,7 @@ function showMenuPage(){
     hideUpdateMeal();
 
     showMenu();
+    console.log('end menu');
 }
 
 function showAddMealToMenuPage(){
@@ -144,11 +151,12 @@ function showAddMealToMenuPage(){
     document.getElementById('button_nav_signup').style.display = 'none';
 
 
-    document.getElementById('button_nav_logout').style.display = 'display';
-    document.getElementById('button_nav_menu').style.display = 'display';
-    document.getElementById('button_nav_add_meal').style.display = 'display';
-    document.getElementById('button_nav_update_menu').style.display = 'display';
+    document.getElementById('button_nav_logout').style.display = 'inline';
+    document.getElementById('button_nav_menu').style.display = 'inline';
+    document.getElementById('button_nav_add_meal').style.display = 'inline';
+    document.getElementById('button_nav_update_menu').style.display = 'inline';
 
+    console.log('displaaaaaaayyyy');
     hideMainPage();
     hideLogin();
     hideSignup();
@@ -165,10 +173,10 @@ function showUpdateMealPage(){
     document.getElementById('button_nav_signup').style.display = 'none';
 
 
-    document.getElementById('button_nav_logout').style.display = 'display';
-    document.getElementById('button_nav_menu').style.display = 'display';
-    document.getElementById('button_nav_add_meal').style.display = 'display';
-    document.getElementById('button_nav_update_menu').style.display = 'display';
+    document.getElementById('button_nav_logout').style.display = 'inline';
+    document.getElementById('button_nav_menu').style.display = 'inline';
+    document.getElementById('button_nav_add_meal').style.display = 'inline';
+    document.getElementById('button_nav_update_menu').style.display = 'inline';
 
     hideMainPage();
     hideLogin();
