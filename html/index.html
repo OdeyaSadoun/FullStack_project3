@@ -21,15 +21,16 @@
 
         <nav>
             <div class="section-inner">
-                <ul class="clearfix">
-                    <li><a href="#" onclick="showContext('login')">Login</a></li>
-                    <li><a href="#" onclick="showContext('signup')">Signup</a></li>
-                    <li><a href="#" onclick="showContext('Employees')">Employees</a></li>
-                    <li><a href="#">Castomers</a></li>
-                    <li><a href="#" onclick="showContext('meals')">Meals</a></li>
+                <ul class="buttons_nav">
+                    <li id="button_nav_login"><a href="#" onclick="showLoginPage()">Login</a></li>
+                    <li id="button_nav_logout"><a href="#" onclick="showMainPage()">Logout</a></li>
+                    <li id="button_nav_signup"><a href="#" onclick="showSignupPage()">Signup</a></li>
+                    <li id="button_nav_menu"><a href="#" onclick="showMenuPage()">Menu</a></li>
+                    <li id="button_nav_add_meal"><a href="#" onclick="showAddMealToMenuPage()">Add Meal</a></li>
+                    <li id="button_nav_update_menu"><a href="#" onclick="showUpdateMealPage()">Update Meal</a></li>
                 </ul>
             </div>
-        </nav><!--/nav-->
+        </nav>
         <br>
     </header>
 
@@ -39,8 +40,8 @@
         <p class="hellotext">click to login or sign up</p>
 
         <div id="buttons" class="buttons">
-            <button class="btn" onclick="showContext('login')">login</button>
-            <button class="btn" onclick="showContext('signup')">sign up</button>
+            <button class="btn" onclick="showLoginPage()">login</button>
+            <button class="btn" onclick="showSignupPage()">sign up</button>
         </div>
     </div>
 
@@ -67,7 +68,7 @@
                             onclick="submitLogin()">Submit</button>
                         <button type="reset" class="btn" value="Reset">Reset</button>
                     </li>
-                    <a class="worngChoice" href="#" onclick="showContext('signup')">Not registered yet? Click here to register</a>
+                    <a class="worngChoice" href="#" onclick="showSignupPage()">Not registered yet? Click here to register</a>
                 </ul>
             </form>
         </div>
@@ -122,14 +123,14 @@
                             onclick="submitSignup()">Submit</button>
                         <button type="reset" class="btn" value="Reset">Reset</button>
                     </li>
-                    <a class="worngChoice" href="#" onclick="showContext('login')">registered user? Click here to connect</a>
+                    <a class="worngChoice" href="#" onclick="showLoginPage()">registered user? Click here to connect</a>
                 </ul>
             </form>
         </div>
     </template>
-
+<!--
     <template id="Employees">
-        <!--<template id="Employees-nav">-->
+       
             <nav>
                 <div class="inner-nav">
                     <ul class="Employees-nav">
@@ -141,7 +142,7 @@
                     </ul>
                 </div>
             </nav>
-        <!--</template>-->
+       
         
         <template id="new-table">
             <div class="form">
@@ -391,17 +392,20 @@
         <br>
         <label class="description">French butter croissant pieces soaked in a sweet cinnamon-scented cream sauce that are baked on the spot and served warm alongside vanilla ice cream and anglaise sauce</label>
     </template>
+-->
 
+<template id="menu">
 
+</template>
+<template id="add_meal_to_menu">
 
-    <script src="../js/other/login.js" type="text/javascript" defer></script>
-    <script src="../js/other/signup.js" type="text/javascript" defer></script>
-    <script src="../js/other/general.js" type="text/javascript" defer></script>
-    <script src="../js/other/new_delivery_order.js" type="text/javascript" defer></script>
-    <script src="../js/other/new_table_order.js" type="text/javascript" defer></script>
+</template>
+<template id="update_meal">
 
+</template>
 
-
+    <script src="../js/client/login.js" type="text/javascript" defer></script>
+    <script src="../js/client/pages.js" type="text/javascript" defer></script>
 
 
 </body>
