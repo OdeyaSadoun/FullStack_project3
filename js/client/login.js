@@ -26,13 +26,8 @@ function submitLogin() {
                     phone: user.phone
                 };
 
-                page.hideLogin();
-                page.hideSignup();
-                page.hideAddMealToMenu();
-                page.hideUpdateMeal();
-
                 console.log('show menu')
-                showMenu();
+                page.showMenu();
             }
         });
     req.send();

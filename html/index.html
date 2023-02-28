@@ -395,10 +395,34 @@
 -->
 
 <template id="menu">
-
+    <div id="tablearea_menu"></div>
 </template>
 <template id="add_meal_to_menu">
+    <div class="form">
+        <h2>Fill in the following details:</h2>
+        <form id="add_meal_form">
+            <ul>
+                <li>
+                    <label for="email"><b>Email:</b></label>
+                    <input class="text" type="email" placeholder="Enter your email" id="email" name="email"
+                        required>
+                </li>
 
+                <li>
+                    <label for="password"><b>Password:</b></label>
+                    <input class="text" type="password" placeholder="Enter your password" id="password"
+                        name="password" required>
+                </li>
+
+                <li class="buttons">
+                    <button type="button" id="submitbtn" name="submitbtn" class="btn"
+                        onclick="submitLogin()">Submit</button>
+                    <button type="reset" class="btn" value="Reset">Reset</button>
+                </li>
+                <a class="worngChoice" href="#" onclick="showSignupPage()">Not registered yet? Click here to register</a>
+            </ul>
+        </form>
+    </div>
 </template>
 <template id="update_meal">
 
