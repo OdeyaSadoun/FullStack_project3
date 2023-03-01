@@ -5,6 +5,14 @@ import * as  manageclient from './managemaels.js'
 
 document.getElementById('showLoginPage_btn').addEventListener('click', showLoginPage);
 document.getElementById('showSignupPage_btn').addEventListener('click', showSignupPage);
+// document.getElementById('login_worngChoice').addEventListener('click', showSignupPage);
+// document.getElementById('signup_worngChoice').addEventListener('click', showLoginPage);
+document.getElementById('button_nav_login').addEventListener('click', showLoginPage);
+document.getElementById('button_nav_logout').addEventListener('click', showHomePage);
+document.getElementById('button_nav_signup').addEventListener('click', showSignupPage);
+document.getElementById('button_nav_menu').addEventListener('click', showMenuPage);
+document.getElementById('button_nav_add_meal').addEventListener('click', showAddMealToMenuPage);
+document.getElementById('button_nav_update_menu').addEventListener('click', showUpdateMealPage);
 
 
 
@@ -45,7 +53,8 @@ function showLogin() {
     document.body.removeChild(document.body.lastElementChild);
     document.body.appendChild(clon);
     document.getElementById('submitbtn_login').addEventListener('click', loginclient.submitLogin);
-    console.log(document.body);
+    document.getElementById('button_nav_login').addEventListener('click', showLoginPage);
+
 }
 
 function showSignup() {
@@ -53,6 +62,7 @@ function showSignup() {
     document.body.removeChild(document.body.lastElementChild);
     document.body.appendChild(clon);
     document.getElementById('submitbtn_signup').addEventListener('click', signuplient.submitSignup);
+    document.getElementById('button_nav_signup').addEventListener('click', showSignupPage);
 
 }
 
@@ -61,23 +71,31 @@ function showMenu() {
     var clon = document.getElementById('menu').content.cloneNode(true);
     document.body.removeChild(document.body.lastElementChild);
     document.body.appendChild(clon);
+    document.getElementById('button_nav_menu').addEventListener('click', showMenuPage);
+
 }
 
 function showAddMealToMenu() {
     var clon = document.getElementById('add_meal_to_menu').content.cloneNode(true);
     document.body.removeChild(document.body.lastElementChild);
     document.body.appendChild(clon);
+    document.getElementById('button_nav_add_meal').addEventListener('click', showAddMealToMenuPage);
+
 }
 
 function showUpdateMeal() {
     var clon = document.getElementById('update_meal').content.cloneNode(true);
     document.body.removeChild(document.body.lastElementChild);
     document.body.appendChild(clon);
+    document.getElementById('button_nav_update_menu').addEventListener('click', showUpdateMealPage);
+
 }
 
 function showMain() {
     document.getElementById('home').style.display = 'inline';
     document.body.removeChild(document.body.lastElementChild);
+    document.getElementById('button_nav_logout').addEventListener('click', showHomePage);
+
 }
 
 function showHomePage() {

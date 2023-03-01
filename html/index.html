@@ -22,12 +22,12 @@
         <nav>
             <div class="section-inner">
                 <ul class="buttons_nav">
-                    <li id="button_nav_login"><a href="#" onclick="showLoginPage()">Login</a></li>
-                    <li id="button_nav_logout"><a href="#" onclick="showHomePage()">Logout</a></li>
-                    <li id="button_nav_signup"><a href="#" onclick="showSignupPage()">Signup</a></li>
-                    <li id="button_nav_menu"><a href="#" onclick="showMenuPage()">Menu</a></li>
-                    <li id="button_nav_add_meal"><a href="#" onclick="showAddMealToMenuPage()">Add Meal</a></li>
-                    <li id="button_nav_update_menu"><a href="#" onclick="showUpdateMealPage()">Update Meal</a></li>
+                    <li id="button_nav_login"><a href="#" >Login</a></li>
+                    <li id="button_nav_logout"><a href="#" >Logout</a></li>
+                    <li id="button_nav_signup"><a href="#" >Signup</a></li>
+                    <li id="button_nav_menu"><a href="#" >Menu</a></li>
+                    <li id="button_nav_add_meal"><a href="#" >Add Meal</a></li>
+                    <li id="button_nav_update_menu"><a href="#" >Update Meal</a></li>
                 </ul>
             </div>
         </nav>
@@ -69,7 +69,7 @@
                         
                     </li>
                     
-                    <a class="worngChoice" href="#" onclick="showSignupPage()">Not registered yet? Click here to
+                    <a id="login_worngChoice" class="worngChoice" href="#" onclick="showSignupPage()">Not registered yet? Click here to
                         register</a>
                 </ul>
             </form>
@@ -125,7 +125,7 @@
                         <button type="button" id="submitbtn_signup" name="submitbtn" class="btn">Submit</button>
                         <button type="reset" class="btn" value="Reset">Reset</button>
                     </li>
-                    <a class="worngChoice" href="#" onclick="showLoginPage()">registered user? Click here to connect</a>
+                    <a id="signup_worngChoice" class="worngChoice" href="#" onclick="showLoginPage()">registered user? Click here to connect</a>
                 </ul>
             </form>
         </div>
