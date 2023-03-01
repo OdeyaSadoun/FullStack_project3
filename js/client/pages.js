@@ -1,4 +1,8 @@
-import * as  otherclient from './login.js'
+import * as  loginclient from './login.js'
+import * as  signuplient from './signup.js'
+import * as  manageclient from './managemaels.js'
+
+
 document.getElementById('showLoginPage_btn').addEventListener('click', showLoginPage);
 document.getElementById('showSignupPage_btn').addEventListener('click', showSignupPage);
 
@@ -40,7 +44,7 @@ function showLogin() {
     var clon = document.getElementById('login').content.cloneNode(true);
     document.body.removeChild(document.body.lastElementChild);
     document.body.appendChild(clon);
-    document.getElementById('submitbtn_login').addEventListener('click', otherclient.submitLogin);
+    document.getElementById('submitbtn_login').addEventListener('click', loginclient.submitLogin);
     console.log(document.body);
 }
 
@@ -48,6 +52,8 @@ function showSignup() {
     var clon = document.getElementById('signup').content.cloneNode(true);
     document.body.removeChild(document.body.lastElementChild);
     document.body.appendChild(clon);
+    document.getElementById('submitbtn_signup').addEventListener('click', signuplient.submitSignup);
+
 }
 
 function showMenu() {

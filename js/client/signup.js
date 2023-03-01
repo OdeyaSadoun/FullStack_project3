@@ -86,7 +86,7 @@ function confirmPassword() {
     }
 }
 
-function submitReg() {
+export function submitSignup() {
 
     let password_signup = document.getElementById('password').value;
     let re_password_signup = document.getElementById('re_password').value;
