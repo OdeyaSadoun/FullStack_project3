@@ -5,27 +5,27 @@ window.onload = function () {
 
 };
 
-function hideLogin(){
+function hideLogin() {
     document.getElementById('login').style.display = 'none';
 }
 
-function hideSignup(){
+function hideSignup() {
     document.getElementById('signup').style.display = 'none';
 }
 
-function hideMenu(){
+function hideMenu() {
     document.getElementById('menu').style.display = 'none';
 }
 
-function hideAddMealToMenu(){
+function hideAddMealToMenu() {
     document.getElementById('add_meal_to_menu').style.display = 'none';
 }
 
-function hideUpdateMeal(){
+function hideUpdateMeal() {
     document.getElementById('update_meal').style.display = 'none';
 }
 
-function hideMainPage(){
+function hideMainPage() {
     console.log("hide home");
     document.getElementById('home').style.display = 'none';
 }
@@ -61,12 +61,12 @@ function showUpdateMeal() {
     document.body.appendChild(clon);
 }
 
-function showMain(){
+function showMain() {
     document.getElementById('home').style.display = 'inline';
     document.body.removeChild(document.body.lastElementChild);
 }
 
-function showHomePage(){
+function showHomePage() {
     console.log("mainpage");
     document.getElementById('button_nav_login').style.display = 'inline';
     document.getElementById('button_nav_signup').style.display = 'inline';
@@ -86,7 +86,7 @@ function showHomePage(){
     showMain();
 }
 
-function showLoginPage(){
+function showLoginPage() {
     console.log("loginpage");
 
     document.getElementById('button_nav_logout').style.display = 'none';
@@ -103,7 +103,7 @@ function showLoginPage(){
     showLogin();
 }
 
-function showSignupPage(){
+function showSignupPage() {
     console.log("signuppage");
 
     document.getElementById('button_nav_logout').style.display = 'none';
@@ -120,7 +120,7 @@ function showSignupPage(){
     showSignup();
 }
 
-function showMenuPage(){
+function showMenuPage() {
     console.log("menupage");
 
     document.getElementById('button_nav_login').style.display = 'none';
@@ -144,7 +144,7 @@ function showMenuPage(){
     console.log('end menu');
 }
 
-function showAddMealToMenuPage(){
+function showAddMealToMenuPage() {
     console.log("addmealpage");
 
     document.getElementById('button_nav_login').style.display = 'none';
@@ -166,7 +166,7 @@ function showAddMealToMenuPage(){
     showAddMealToMenu();
 }
 
-function showUpdateMealPage(){
+function showUpdateMealPage() {
     console.log("signuppage");
 
     document.getElementById('button_nav_login').style.display = 'none';
@@ -186,5 +186,3 @@ function showUpdateMealPage(){
 
     showUpdateMeal();
 }
-
-

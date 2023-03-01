@@ -1,4 +1,3 @@
-// import { page } from '../client/pages.js'
 
 function submitLogin() {
 
@@ -14,7 +13,7 @@ function submitLogin() {
         'server_fulstack3/submitLogin',
         { email: email_login, password: password_login },
         function (response) {
-            console.log(response)
+            console.log(response);
             if (response.status === 200) {
                 //200 = ok
                 var user = response.user;
@@ -27,7 +26,7 @@ function submitLogin() {
                 };
 
                 console.log('show menu')
-                page.showMenu();
+                showHomePage();
             }
         });
     req.send();
@@ -47,38 +46,4 @@ function submitLogin() {
     //     alert('wrong username or password');
     // }
 
-}
-
-function sign_in(event) {
-    // get password and username from login form
-    var userElement = document.getElementById("UsernameText");
-    var user_username = userElement.value;
-    var passElement = document.getElementById("PasswordText");
-    var user_password = passElement.value;
-
-    var req = new FXMLhttpRequest();
-    req.open(
-        'GET',
-        'server.com/SignIn',
-        { username: user_username, password: user_password },
-        function (response) {
-            console.log(response)
-            if (response.status === 200) {
-
-                var user = response.user;
-                logged_user = {
-                    username: user.username,
-                    password: user.password,
-                    id: user.id,
-                    fname: user.fname,
-                    lname: user.lname
-                };
-
-                exit_login_page();
-                exit_signup_page();
-                console.log('log in success, loading tasks...');
-                load_todo_list();
-            }
-        });
-    req.send();
 }

@@ -68,7 +68,6 @@ function verifyName() {
     return true;
 }
 
-
 function confirmPassword() {
     //function to confirm the password
     var pw1 = document.getElementById("password").value;
@@ -87,41 +86,74 @@ function confirmPassword() {
     }
 }
 
-
 function submitReg() {
 
-    let password = document.getElementById('password').value;
-    let re_password = document.getElementById('re_password').value;
+    let password_signup = document.getElementById('password').value;
+    let re_password_signup = document.getElementById('re_password').value;
 
     let fname = document.getElementById('first_name').value;
     let lname = document.getElementById('last_name').value;
-    let phone = document.getElementById('phone').value;
-    let email = document.getElementById('email').value;
+    let phone_signup = document.getElementById('phone').value;
+    let email_signup = document.getElementById('email').value;
 
-    let userFromStroge = JSON.parse(window.localStorage.getItem(email));
 
-    if (userFromStroge != undefined || userFromStroge != null) {
-        alert('The user already exists in the system! You must log in')
-        return false;
-    }
-
-    if (!password || !fname || !lname || !phone || !email || !re_password) {
+    if (!password_signup || !fname || !lname || !phone_signup || !email_signup || !re_password_signup) {
         alert('Please fill in all fields for registration!');
         return false;
     }
-    else {
 
-        let score = 0;
-        const enterGameDate = new Date();
-        let actions = [{ time: enterGameDate.toString(), action: "registration" }];
-        let cnt = 1;
+    var req = new FXMLhttpRequest();
+    req.open(
+        'PUT',
+        'server_fulstack3/submitSignup',
+        { email: email_signup, password: password_signup, first_name: fname, last_name: lname, phone: phone_signup },
+        function (response) {
+            console.log(response);
+            if (response.status === 200) {
+                //200 = ok
+                var user = response.user;
+                if(user != undefined || user != null){
+                    //there is user with the email
+                    alert('The user already exists in the system! You must log in')
+                }
+                else{
+                    addUser();
+                }
 
-        const user = { name: fname + " " + lname, phone: phone, email: email, password: password, score: score, actions: actions, counter: cnt };
-        console.log(user);
-        window.localStorage.setItem(email, JSON.stringify(user));
-        document.cookie = `email=${email}; path=/`;
+                showLoginPage();
+            }
+        });
+    req.send();
 
-        document.getElementById('reg_form').submit();
-    }
+
+
+
+
+
+
+
+    // let userFromStroge = JSON.parse(window.localStorage.getItem(email));
+
+    // if (userFromStroge != undefined || userFromStroge != null) {
+    //     alert('The user already exists in the system! You must log in')
+    //     return false;
+    // }
+
+
+
+    // else {
+
+    //     let score = 0;
+    //     const enterGameDate = new Date();
+    //     let actions = [{ time: enterGameDate.toString(), action: "registration" }];
+    //     let cnt = 1;
+
+    //     const user = { name: fname + " " + lname, phone: phone, email: email, password: password, score: score, actions: actions, counter: cnt };
+    //     console.log(user);
+    //     window.localStorage.setItem(email, JSON.stringify(user));
+    //     document.cookie = `email=${email}; path=/`;
+
+    //     document.getElementById('reg_form').submit();
+    // }
 
 }
