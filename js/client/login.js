@@ -1,18 +1,24 @@
+// import * as page from "../client/pages.js"
+import {FXMLhttpRequest} from '../FXMLHttpRequest/FXMLHttpRequest.js'
 
-function submitLogin() {
 
+export function submitLogin() {
+
+    console.log(1);
     let email_login = document.getElementById('email').value;
     let password_login = document.getElementById('password').value;
-
+    console.log(2);
     let logged_user = { email: "", password: "", fname: "", lname: "", phone: "" };
 
-
+    console.log(3);
     var req = new FXMLhttpRequest();
+    console.log(4);
     req.open(
         'GET',
         'server_fulstack3/submitLogin',
         { email: email_login, password: password_login },
         function (response) {
+            console.log('go to server');
             console.log(response);
             if (response.status === 200) {
                 //200 = ok
@@ -25,8 +31,8 @@ function submitLogin() {
                     phone: user.phone
                 };
 
-                console.log('show menu')
-                showHomePage();
+                console.log('submitlogin');
+                page.showHomePage();
             }
         });
     req.send();
