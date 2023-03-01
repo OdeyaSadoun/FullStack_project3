@@ -1,3 +1,9 @@
+import * as  otherclient from './login.js'
+document.getElementById('showLoginPage_btn').addEventListener('click', showLoginPage);
+document.getElementById('showSignupPage_btn').addEventListener('click', showSignupPage);
+
+
+
 window.onload = function () {
     console.log("load page");
     showHomePage();
@@ -34,6 +40,8 @@ function showLogin() {
     var clon = document.getElementById('login').content.cloneNode(true);
     document.body.removeChild(document.body.lastElementChild);
     document.body.appendChild(clon);
+    document.getElementById('submitbtn_login').addEventListener('click', otherclient.submitLogin);
+    console.log(document.body);
 }
 
 function showSignup() {

@@ -14,4 +14,16 @@ export class FXMLhttpRequest {
         network.send(this);
     }
 
+    // open(method, url) {
+    //     this.method = method;
+    //     this.url = url;
+    // }
+
+    // onload(body, eventhandler) {
+    //     this.body = body;
+    //     this.eventhandler = eventhandler;
+    //     this.status = 0;
+    //     this.statusText = "None";
+    // }
+
 }

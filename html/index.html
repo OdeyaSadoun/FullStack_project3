@@ -40,8 +40,8 @@
         <p class="hellotext">click to login or sign up</p>
 
         <div id="buttons" class="buttons">
-            <button class="btn" onclick="showLoginPage()">login</button>
-            <button class="btn" onclick="showSignupPage()">sign up</button>
+            <button id="showLoginPage_btn" class="btn" >login</button>
+            <button id="showSignupPage_btn" class="btn" >sign up</button>
         </div>
     </div>
 
@@ -64,14 +64,16 @@
                     </li>
 
                     <li class="buttons">
-                        <button type="button" id="submitbtn" name="submitbtn" class="btn"
-                            onclick="submitLogin()">Submit</button>
+                        <button id="submitbtn_login" name="submitbtn" class="btn">Submit</button>
                         <button type="reset" class="btn" value="Reset">Reset</button>
+                        
                     </li>
+                    
                     <a class="worngChoice" href="#" onclick="showSignupPage()">Not registered yet? Click here to
                         register</a>
                 </ul>
             </form>
+
         </div>
     </template>
     <template id="signup">
@@ -120,8 +122,7 @@
                     <span id='message'></span>
 
                     <li class="buttons">
-                        <button type="button" id="submitbtn" name="submitbtn" class="btn"
-                            onclick="submitSignup()">Submit</button>
+                        <button type="button" id="submitbtn_signup" name="submitbtn" class="btn">Submit</button>
                         <button type="reset" class="btn" value="Reset">Reset</button>
                     </li>
                     <a class="worngChoice" href="#" onclick="showLoginPage()">registered user? Click here to connect</a>
@@ -129,271 +130,6 @@
             </form>
         </div>
     </template>
-    <!--
-    <template id="Employees">
-       
-            <nav>
-                <div class="inner-nav">
-                    <ul class="Employees-nav">
-                        <li><a href="#" onclick="showContext('new-table')">new table order</a></li>
-                        <li><a href="#" onclick="showContext('new_delivery')">new delivery order</a></li>
-                        <li><a href="#" >costomers</a></li>
-                        <li><a href="#" >Castomers for today</a></li>
-                        <li><a href="#" onclick="showContext('new-castomer')">add castomer</a></li>
-                    </ul>
-                </div>
-            </nav>
-       
-        
-        <template id="new-table">
-            <div class="form">
-                <form id="new_table_form">
-                <ul>
-                    <li>
-                       
-                        <label for="email"><b>Email:</b></label>
-                        <input class="text" type="email" placeholder="Enter castomer email" id="email" name="email"
-                            required>
-                    </li>
-
-                    <li>
-                        <label for="phone"><b>Phone:</b></label>
-                        <input class="text" type="tel" id="phone" name="phone"
-                            placeholder="Enter phone number in the shape: XXX-XXXXXXX" pattern="[0-9]{3}-[0-9]{7}">
-                    </li>
-
-                    <li>
-                        <label for="guests"><b>number of guests:</b></label>
-                        <input class="number" type="number" placeholder="Enter number of guests" id="guests" name="guests" 
-                             required>
-                     </li>
-
-                     <li>
-                        <label for="time"><b>time of arrived:</b></label>
-                        <input class="time" type="time" id="time" name="time" required>
-                     </li>
-                     
-                     <li class="buttons">
-                        <button type="button" id="submitbtn" name="submitbtn" class="btn"
-                            onclick="submitNewOrder()">Submit</button>
-                        <button type="reset" class="btn" value="Reset">Reset</button>
-                    </li>
-
-                </ul>   
-            </form>            
-            </div>
-        </template>
-
-        <template id="new_delivery">
-            <div class="form">
-                <form id="new_delivery_form">
-                <ul>
-                    <li>
-                        <label for="first_name"><b>first name</b></label>
-                        <input class="text" type="text" id="first_name" required> 
-                    </li>
-
-                    <li>
-                        <label for="last_name"><b>last name</b></label>
-                        <input class="text" type="text" id="last_name" required> 
-                    </li>
-
-                    <li>
-                        <label for="phone"><b>Phone:</b></label>
-                        <input class="text" type="tel" id="phone" name="phone"
-                            placeholder="Enter phone number in the shape: XXX-XXXXXXX" pattern="[0-9]{3}-[0-9]{7}" required>
-                    </li>
-
-                    <li>
-                        <label for="city"><b>city</b></label>
-                        <input class="text" type="text" id="city" name="city" placeholder="Enter your city" required>
-                    </li>
-
-                    <li>
-                        <label for="street"><b>street</b></label>
-                        <input class="text" type="text" id="street" name="street" placeholder="Enter your street" required>
-                    </li>
-                    <li>
-                        <label for="floor"><b>floor</b></label>
-                        <input class="number" type="number" id="floor" name="floor" placeholder="Enter your floor number" required>
-                    </li>
-                    <li>
-                        <label for="apartment"><b>apartment</b></label>
-                        <input class="number" type="number" id="apartment" name="apartment" placeholder="Enter your apartment number" required>
-                    </li>
-
-                    <li class="buttons">
-                        <button type="button" id="submitbtn" name="submitbtn" class="btn"
-                            onclick="submitNewDelivary()">Submit</button>
-                        <button type="reset" class="btn" value="Reset">Reset</button>
-                    </li>
-                </ul>
-            </form>
-            </div>
-        </template>
-
-        <template id="new-castomer">
-            <div class="form">
-                <form id="new_castomer_form">
-                    <h2>Fill in the following details:</h2>
-                    <ul class="list">
-                    <li>
-                        <label for="first_name"><b>First name:</b></label>
-                        <input class="text" type="text" placeholder="Enter your first name" id="first_name"
-                            name="first_name" required onchange="verifyName()">
-                    </li>
-
-                    <li>
-                        <label for="last_name"><b>Last name:</b></label>
-                        <input class="text" type="text" placeholder="Enter your last name" id="last_name"
-                            name="last_name" required onchange="verifyName()">
-                    </li>
-
-                    <li>
-                        <label for="phone"><b>Phone:</b></label>
-                        <input class="text" type="tel" id="phone" name="phone"
-                            placeholder="Enter your phone in the shape: XXX-XXXXXXX" pattern="[0-9]{3}-[0-9]{7}"
-                            required>
-                    </li>
-
-                    <li>
-                        <label for="email"><b>Email:</b></label>
-                        <input class="text" type="email" placeholder="Enter your email" id="email" name="email"
-                            required>
-                    </li>
-                    <li>
-                        <label for="city"><b>city</b></label>
-                        <input class="text" type="text" id="city" name="city" placeholder="Enter your city" >
-                    </li>
-
-                    <li>
-                        <label for="street"><b>street</b></label>
-                        <input class="text" type="text" id="street" name="street" placeholder="Enter your street" >
-                    </li>
-                    <li>
-                        <label for="floor"><b>floor</b></label>
-                        <input class="number" type="number" id="floor" name="floor" placeholder="Enter your floor number" >
-                    </li>
-                    <li>
-                        <label for="apartment"><b>apartment</b></label>
-                        <input class="number" type="number" id="apartment" name="apartment" placeholder="Enter your apartment number" >
-                    </li>
-
-                    <li>
-                        <label for="birth_date"><b>birth date</b></label>
-                        <input class="birth_date" type="date" id="birth_date" name="birth_date">
-                    </li>
-
-                    <li>
-                        <label for="password"><b>Password:</b></label>
-                        <input class="text" type="password" placeholder="Enter your password" id="password"
-                            name="password" required onchange="verifyPassword()">
-                    </li>
-
-
-                    <li>
-                        <label for="re_password"><b>Verify your password:</b></label>
-                        <input class="text" type="password" placeholder="Enter again your password" id="re_password"
-                            name="re_password" required onchange="confirmPassword()">
-                    </li>
-
-                    <span id='message'></span>
-
-                    <li class="buttons">
-                        <button type="button" id="submitbtn" name="submitbtn" class="btn"
-                            onclick="submitReg()">Submit</button>
-                        <button type="reset" class="btn" value="Reset">Reset</button>
-                    </li>
-                </ul>
-                </form>
-            </div>
-        </template>
-
-        
-        
-    </template>
-
-    <template id="Castomers">
-        
-    </template>
-
-    <template id="meals">
-        
-        <label class="title">STARTS</label>
-        <br>
-        <br>
-        <label class="meal_name">Sautéed mushrooms | 68 </label>  
-        <br>
-        <label class="description">In a hot pan in a sweet Asian sauce</label>
-        <br>
-        <br>
-        <label class="meal_name">Cigar Locus | 58</label>
-        <br>
-        <label class="description"> Accompanied by salton leaves, tahini and pickled lemon</label>
-        <br>
-        <br>
-        <label class="meal_name">Beetroot carpaccio | 52</label>  
-        <br>
-        <label class="description">Grated feta, roasted almonds, olive oil and reduced balsamic vinegar</label>
-        <br><br>
-        <label class="meal_name"> Salmon sashimi | 58</label>  
-        <br>
-        <label class="description">Raw fish in Asian sauce, avocado, wasabi peas and peanuts</label>
-        <br><br>
-        <label class="meal_name"> Grilled Camembert in Tabon | 52</label>  
-        <br>
-        <label class="description">Wrapped in focaccia dough, garlic confit and honey glaze</label>
-        <br><br>
-        
-        <label class="title">MAINS</label>
-        <br><br>
-        <label class="meal_name">Filet bream | whole | 130</label>  
-        <br><br>
-        <label class="meal_name">To shine fillet | whole | 140</label> 
-        <br>        <br>
-        <label class="meal_name">Salmon fillet 125</label>  
-        <br><br>
-        <label class="meal_name">A variable addition to the fish Ask the waiter</label> 
-        <br><br> 
-        <label class="meal_name">Pappardella | 86</label>  
-        <br>
-        <label class="description">with pieces of salmon and spinach</label>
-        <br><br>
-        <label class="meal_name">Tortellini filled with mushrooms | 78 </label>  
-        <br>
-        <label class="description">In alfredo sauce mix mushrooms, parmesan shavings and truffle puree</label>
-        <br><br>
-        <label class="meal_name">Ravioli | 72 </label>  
-        <br>
-        <label class="description">Filled with tomato and artichoke confit in rosé sauce</label>
-        <br><br>
-        <label class="meal_name">Gnocchi "Clouds" | 72</label>  
-        <br>
-        <label class="description"> Potato gnocchi in truffle butter, parsley mushrooms and parmesan shavings</label>
-        <br><br>
-        <label class="meal_name">Fungi Bianca | 78 </label>  
-        <br>
-        <label class="description">Mascarpone cream, truffle puree, wild mushrooms and shimaggi, mozzarella and parmesan shavings</label>
-        <br><br>
-        <label class="meal_name">4 onions | 72</label>  
-        <br>
-        <label class="description">Long-cooked onion cream, mozzarella, zucchini, Kalamata olives and parmesan shavings</label>
-        <br><br>
-        <label class="title">DESSERTS</label>
-        <br><br>
-        <label class="meal_name">A visit to France | 42</label> 
-        <br> 
-        <label class="description">Fresh French butter croissant filled with white chocolate whipped cream and fresh strawberries served with vanilla anglaise</label>
-        <br><br>
-        <label class="meal_name">Apple Pie | 48</label>
-        <br>  
-        <label class="description"> Caramelized apples on Breton dough and French almond cream served with vanilla ice cream and salty toffee sauce</label>
-        <br><br>
-        <label class="meal_name">Brad Pudding | 52 </label>  
-        <br>
-        <label class="description">French butter croissant pieces soaked in a sweet cinnamon-scented cream sauce that are baked on the spot and served warm alongside vanilla ice cream and anglaise sauce</label>
-    </template>
--->
 
     <template id="menu">
         <div id="tablearea_menu"></div>
@@ -460,8 +196,14 @@
         </div>
     </template>
 
-    <script src="../js/client/login.js" type="text/javascript" defer></script>
-    <script src="../js/client/pages.js" type="text/javascript" defer></script>
+    <script src="../js/client/login.js" type="module" ></script>
+    <script src="../js/client/managemaels.js" type="module" ></script>
+    <script src="../js/client/pages.js" type="module" ></script>
+    <script src="../js/client/signup.js" type="module" ></script>
+    <script src="../js/FXMLHttpRequest/FXMLHttpRequest.js" type="module" ></script>
+    <script src="../js/network/network.js" type="module" ></script>
+    <script src="../js/server/server.js" type="module" ></script>
+
 
 
 </body>
