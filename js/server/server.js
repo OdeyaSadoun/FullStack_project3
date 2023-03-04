@@ -1,4 +1,10 @@
+import { FXMLhttpRequest } from "../FXMLHttpRequest/FXMLHttpRequest.js";
+import { db } from "../Database/database.js";
+
 export class server {
+
+    static my_url = 'server_fullstack3';
+
     static handle(FXMLhttpRequest, respons_func) {
 
         var resource = FXMLhttpRequest.url.substring(server.my_url.length, FXMLhttpRequest.url.length)
@@ -16,7 +22,6 @@ export class server {
             this.handle_DELETE(resource, FXMLhttpRequest.body, respons_func);
         }
         FXMLhttpRequest.status = 4;
-
     }
 
 
