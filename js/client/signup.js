@@ -1,3 +1,5 @@
+import * as page from "../client/pages.js"
+import {FXMLhttpRequest} from '../FXMLHttpRequest/FXMLHttpRequest.js'
 
 function verifyPassword() {
 
@@ -103,57 +105,36 @@ export function submitSignup() {
     }
 
     var req = new FXMLhttpRequest();
+
+    req.onload = function (response) {
+        console.log(response);
+        if (response.status === 200) {
+            //200 = ok
+            var user = response.user;
+            if(user != undefined || user != null){
+                //there is user with the email
+                alert('The user already exists in the system! You must log in')
+                page.showLoginPage();
+            }
+            else{
+                logged_user = {
+                    email: email_signup,
+                    password: password_signup,
+                    fname: user.first_name,
+                    lname: user.last_name,
+                    phone: user.phone
+                };
+            }
+
+            page.showLoginPage();
+        }
+    }
+
     req.open(
         'PUT',
-        'server_fulstack3/submitSignup',
+        'server_fullstack3/addUser',
         { email: email_signup, password: password_signup, first_name: fname, last_name: lname, phone: phone_signup },
-        function (response) {
-            console.log(response);
-            if (response.status === 200) {
-                //200 = ok
-                var user = response.user;
-                if(user != undefined || user != null){
-                    //there is user with the email
-                    alert('The user already exists in the system! You must log in')
-                }
-                else{
-                    addUser();
-                }
-
-                showLoginPage();
-            }
-        });
+        );
     req.send();
-
-
-
-
-
-
-
-
-    // let userFromStroge = JSON.parse(window.localStorage.getItem(email));
-
-    // if (userFromStroge != undefined || userFromStroge != null) {
-    //     alert('The user already exists in the system! You must log in')
-    //     return false;
-    // }
-
-
-
-    // else {
-
-    //     let score = 0;
-    //     const enterGameDate = new Date();
-    //     let actions = [{ time: enterGameDate.toString(), action: "registration" }];
-    //     let cnt = 1;
-
-    //     const user = { name: fname + " " + lname, phone: phone, email: email, password: password, score: score, actions: actions, counter: cnt };
-    //     console.log(user);
-    //     window.localStorage.setItem(email, JSON.stringify(user));
-    //     document.cookie = `email=${email}; path=/`;
-
-    //     document.getElementById('reg_form').submit();
-    // }
 
 }
