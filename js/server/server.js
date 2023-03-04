@@ -51,9 +51,9 @@ export class server {
             else {
                 console.log('add meal to db');
                 const meal = { name: meal.name, price: meal.price, vegetarian: meal.vegetarian, vegan: meal.vegan, allergic: meal.allergic };
-                db.addMeal(user);
+                db.addMeal(meal);
                 var meal_after_addition = db.getMeal(body.email, body.password);
-                console.log(user);
+                console.log(meal);
                 response = {
                     status: 200,
                     meal: { name: meal_after_addition.name, price: meal_after_addition.price, vegetarian: meal_after_addition.vegetarian, vegan: meal_after_addition.vegan, allergic: meal_after_addition.allergic }
