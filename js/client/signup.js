@@ -1,6 +1,13 @@
 import * as page from "../client/pages.js"
 import {FXMLhttpRequest} from '../FXMLHttpRequest/FXMLHttpRequest.js'
 
+document.getElementById('first_name').addEventListener('onchange', verifyName);
+document.getElementById('last_name').addEventListener('onchange', verifyName);
+document.getElementById('password_signup').addEventListener('onchange', verifyPassword);
+document.getElementById('re_password').addEventListener('onchange', confirmPassword);
+
+
+
 function verifyPassword() {
 
     var pw = document.getElementById('password').value;
