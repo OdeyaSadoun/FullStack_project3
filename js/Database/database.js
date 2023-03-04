@@ -20,4 +20,8 @@ export class Database {
             return {};
         }
     }
+
+    static getAllMeals(){
+        return loadMeals();
+    }
 }
