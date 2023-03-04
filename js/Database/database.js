@@ -41,11 +41,11 @@ export class Database {
         }
     }
 
-    static getUser(email){
+    static getUser(email, password){
         let allusers = this.loadUsers;
         if(allusers){
             for(let i = 0; i < allusers.length; i++){
-                if (allusers[i].email === email){
+                if (allusers[i].email === email && allusers[i].password === password){
                     return JSON.parse(allusers[i]);
                 }
             }
