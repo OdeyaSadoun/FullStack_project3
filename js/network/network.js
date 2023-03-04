@@ -9,7 +9,10 @@ export class network{
             return;
         }
         else if(FXMLhttpRequest.url.split('/')[0] === 'server_fulstack3'){
-            server.handle(FXMLhttpRequest);
+            server.handle(FXMLhttpRequest, function (response){
+                console.log('network: responding to client with ', response)
+                FXMLhttpRequest.onload(response);
+            })
         }
     }
 }

@@ -2,11 +2,11 @@ import { network } from '../network/network.js'
 
 export class FXMLhttpRequest {
 
-    open(method, url, body, handler) {
+    open(method, url, body) {
         this.method = method;
         this.url = url;
         this.body = body;
-        this.handler = handler;
+        this.onload = null;
         this.status = 0;
     }
 
