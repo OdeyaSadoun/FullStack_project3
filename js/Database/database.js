@@ -24,4 +24,38 @@ export class Database {
     static getAllMeals(){
         return loadMeals();
     }
+
+    static getMeal(name){
+        let allmeals = getAllMeals();
+        if(allmeals){
+            for(let i = 0; i < allmeals.length; i++){
+                if (allmeals[i].name === name){
+                    return JSON.parse(allmeals[i]);
+                }
+            }
+            //there is no meal with this name:
+            console.log("there is no meal with this name");
+            return {};
+        }
+        else{
+            return {};
+        }
+    }
+
+    static getUser(email){
+        let allusers = this.loadUsers;
+        if(allusers){
+            for(let i = 0; i < allusers.length; i++){
+                if (allusers[i].email === email){
+                    return JSON.parse(allusers[i]);
+                }
+            }
+            //there is no meal with this name:
+            console.log("there is no user with this email");
+            return {};
+        }
+        else{
+            return {};
+        }
+    }
 }
