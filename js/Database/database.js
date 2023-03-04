@@ -12,7 +12,6 @@ export class Database {
     static loadMeals() {
         let mealsFromStroge = JSON.parse(window.localStorage.getItem('meals'));
         if (mealsFromStroge) {
-
             return mealsFromStroge;
         }
         else {
@@ -56,6 +55,20 @@ export class Database {
         }
         else{
             return {};
+        }
+    }
+
+    static addMeal(meal){
+        const ggg = { name: meal.name, price: meal.price, vegetarian: meal.vegetarian, vegan: meal.vegan, allergic: meal.allergic };
+        let existmeal = this.getMeal(meal.name);
+        if(existmeal){
+            //already exist
+            return {};
+        }
+        else{
+            let allMeals = this.loadMeals();
+
+            window.localStorage.setItem('meals', '{}');
         }
     }
 }
