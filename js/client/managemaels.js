@@ -1,3 +1,6 @@
+document.getElementById('submit_add_meal_btn').addEventListener('click', addMealToMenu);
+
+
 function addMealToMenu(){
     var req = new FXMLhttpRequest();
     req.open(

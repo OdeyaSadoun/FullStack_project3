@@ -1,10 +1,10 @@
 import * as page from "../client/pages.js"
 import {FXMLhttpRequest} from '../FXMLHttpRequest/FXMLHttpRequest.js'
 
-document.getElementById('first_name').addEventListener('onchange', verifyName);
-document.getElementById('last_name').addEventListener('onchange', verifyName);
-document.getElementById('password_signup').addEventListener('onchange', verifyPassword);
-document.getElementById('re_password').addEventListener('onchange', confirmPassword);
+document.getElementById('first_name').addEventListener('change', verifyName);
+document.getElementById('last_name').addEventListener('change', verifyName);
+document.getElementById('password_signup').addEventListener('change', verifyPassword);
+document.getElementById('re_password').addEventListener('change', confirmPassword);
 
 
 
