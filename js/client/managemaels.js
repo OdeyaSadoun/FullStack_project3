@@ -153,3 +153,12 @@ function deleteMeal(){
     req.send();
 
 }
+
+function getallmeals()
+{
+    var req = new FXMLhttpRequest();
+    req.open("GET", "meals.html");
+    req.send();
+    document.getElementById("all_meals").innerText= req.innerText;
+
+}

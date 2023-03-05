@@ -14,6 +14,8 @@ export class FXMLhttpRequest {
         network.send(this);
     }
 
+    
+
     // open(method, url) {
     //     this.method = method;
     //     this.url = url;

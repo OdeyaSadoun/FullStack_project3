@@ -14,6 +14,14 @@ document.getElementById('button_nav_menu').addEventListener('click', showMenuPag
 document.getElementById('button_nav_add_meal').addEventListener('click', showAddMealToMenuPage);
 document.getElementById('button_nav_update_menu').addEventListener('click', showUpdateMealPage);
 
+/*
+document.getElementById('all_meals').addEventListener('click', allmeals);
+
+function allmeals()
+{
+
+}*/
+
 
 
 window.onload = function () {
