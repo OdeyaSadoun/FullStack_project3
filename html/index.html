@@ -55,13 +55,13 @@
                 <ul>
                     <li>
                         <label for="email"><b>Email:</b></label>
-                        <input class="text" type="email" placeholder="Enter your email" id="email" name="email"
+                        <input class="text" type="email" placeholder="Enter your email" id="email_login" name="email"
                             required>
                     </li>
 
                     <li>
                         <label for="password"><b>Password:</b></label>
-                        <input class="text" type="password" placeholder="Enter your password" id="password"
+                        <input class="text" type="password" placeholder="Enter your password" id="password_login"
                             name="password" required>
                     </li>
 
@@ -86,13 +86,13 @@
                     <li>
                         <label for="first_name"><b>First name:</b></label>
                         <input class="text" type="text" placeholder="Enter your first name" id="first_name"
-                            name="first_name" required onchange="verifyName()">
+                            name="first_name" required>
                     </li>
 
                     <li>
                         <label for="last_name"><b>Last name:</b></label>
                         <input class="text" type="text" placeholder="Enter your last name" id="last_name"
-                            name="last_name" required onchange="verifyName()">
+                            name="last_name" required>
                     </li>
 
                     <li>
@@ -104,21 +104,21 @@
 
                     <li>
                         <label for="email"><b>Email:</b></label>
-                        <input class="text" type="email" placeholder="Enter your email" id="email" name="email"
+                        <input class="text" type="email" placeholder="Enter your email" id="email_signup" name="email"
                             required>
                     </li>
 
                     <li>
                         <label for="password"><b>Password:</b></label>
-                        <input class="text" type="password" placeholder="Enter your password" id="password"
-                            name="password" required onchange="verifyPassword()">
+                        <input class="text" type="password" placeholder="Enter your password" id="password_signup"
+                            name="password" required>
                     </li>
 
 
                     <li>
                         <label for="re_password"><b>Verify your password:</b></label>
                         <input class="text" type="password" placeholder="Enter again your password" id="re_password"
-                            name="re_password" required onchange="confirmPassword()">
+                            name="re_password" required>
                     </li>
 
                     <span id='message'></span>
@@ -148,12 +148,6 @@
                     </li>
 
                     <li>
-                        <label for="ingredients"><b>Ingredients:</b></label>
-                        <input class="text" type="text" placeholder="Enter the ingredients:" id="ingredients"
-                            name="ingredients" required>
-                    </li>
-
-                    <li>
                         <label for="price"><b>Price:</b></label>
                         <input class="text" type="number" placeholder="Enter the price:" id="price" name="price"
                             required>
@@ -171,7 +165,7 @@
                     </li>
 
                     <li class="buttons">
-                        <button type="button" id="submitbtn" name="submitbtn" class="btn" onclick="addMeal()">Add
+                        <button type="button" id="submit_add_meal_btn" name="submitbtn" class="btn" >Add
                             Meal</button>
                         <button type="reset" class="btn" value="Reset">Reset</button>
                     </li>

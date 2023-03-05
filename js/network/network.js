@@ -26,6 +26,7 @@ export class network{
             console.log('network: invalid url');
             return;
         }
+<<<<<<< HEAD
         else if(FXMLhttpRequest.url.split('/')[0] === 'server_fulstack3',function (response){
             console.log('network: responding to client with ', response)
             FXMLhttpRequest(response){
@@ -33,3 +34,13 @@ export class network{
         }
     }*/
 }
+=======
+        else if(FXMLhttpRequest.url.split('/')[0] === 'server_fulstack3'){
+            server.handle(FXMLhttpRequest, function (response){
+                console.log('network: responding to client with ', response)
+                FXMLhttpRequest.onload(response);
+            })
+        }
+    }
+}
+>>>>>>> dfe31c9d3215c61fbb033ecc4178100ae5979cad
