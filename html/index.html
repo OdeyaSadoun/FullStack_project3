@@ -27,7 +27,7 @@
                     <li id="button_nav_signup"><a href="#" >Signup</a></li>
                     <li id="button_nav_menu"><a href="#" >Menu</a></li>
                     <li id="button_nav_add_meal"><a href="#" >Add Meal</a></li>
-                    <li id="button_nav_update_menu"><a href="#" >Update Meal</a></li>
+                    <li id="button_nav_update_menu" ><a href="#" >Update Meal</a></li>
                 </ul>
             </div>
         </nav>
@@ -134,7 +134,9 @@
     </template>
 
     <template id="menu">
-        <div id="tablearea_menu"></div>
+        <div id="tablearea_menu">
+            <ul id="menu_meals" ></ul>
+        </div>
     </template>
     <template id="add_meal_to_menu">
         <div class="form">
@@ -173,19 +175,53 @@
             </form>
         </div>
     </template>
-    <template id="update_meal">
+    <template id="search_meal">
         <div class="form">
-            <form id="update_meal_form">
+            <form id="search_meal_form">
                 <ul>
                     <li>
                         <label for="name"><b>Enter the name of the meal to update:</b></label>
                         <input class="text" type="text" placeholder="Name of the meal:" id="name" name="name" required>
                     </li>
-
-
                     <li class="buttons">
                         <button type="button" id="submitbtn" name="submitbtn" class="btn"
                             onclick="searchTheMeal()">Search</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </template>
+    <template id="update_meal">
+        <div class="form">
+            <form id="update_meal_form">
+                <ul>
+                    <li>
+                        <label for="name"><b>Name:</b></label>
+                        <input class="text" type="text" placeholder="" id="name" name="name"
+                            required>
+                    </li>
+
+                    <li>
+                        <label for="price"><b>Price:</b></label>
+                        <input class="text" type="number" placeholder="" id="price" name="price"
+                            required>
+                    </li>
+
+                    <li>
+                        <label for="comments"><b>Comments:</b></label>
+                        <br>
+                        <input class="text" type="checkbox" id="option1" name="option1" value="Vegetarian" >
+                        <label for="option1">Suitable for Vegetarian</label><br>
+                        <input class="text" type="checkbox" id="option2" name="option2" value="Vegan">
+                        <label for="option2">Suitable for Vegan</label><br>
+                        <input class="text" type="checkbox" id="option3" name="option3" value="Allergic">
+                        <label for="option3">Suitable for Allergic</label><br>
+                    </li>
+
+                    <li class="buttons">
+                        <button type="button" id="submit_update_meal_btn" name="submitbtn" class="btn" onclick="submitMeal()">Add
+                            Meal</button>
+                        <button type="reset" class="btn" value="Reset">Reset</button>
                     </li>
                 </ul>
             </form>

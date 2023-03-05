@@ -126,6 +126,13 @@ function showHomePage() {
     showMain();
 }
 
+function showUpdateSingleMealPage()
+{
+    console.log("updateSingleMealPage");
+    window.location.getElementById("update_meal");
+    
+}
+
 function showLoginPage() {
     console.log("loginpage");
 
