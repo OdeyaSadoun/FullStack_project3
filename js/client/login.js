@@ -1,13 +1,14 @@
 import * as page from "../client/pages.js"
 import {FXMLhttpRequest} from '../FXMLHttpRequest/FXMLHttpRequest.js'
 
+let logged_user = { email: "", password: "", fname: "", lname: "", phone: "" };
 
 export function submitLogin() {
 
     let email_login = document.getElementById('email_login').value;
     let password_login = document.getElementById('password_login').value;
 
-    let logged_user = { email: "", password: "", fname: "", lname: "", phone: "" };
+
 
  
     var req = new FXMLhttpRequest();
@@ -37,4 +38,9 @@ export function submitLogin() {
     req.send();
 
 
+
+}
+
+export function getLoggedUser(){
+    return logged_user;
 }

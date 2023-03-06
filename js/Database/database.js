@@ -20,76 +20,57 @@ export class db {
         }
     }
 
-    static getAllMeals(){
+    static getAllMeals() {
         return loadMeals();
     }
 
-    static getMeal(name){
-        let allmeals = getAllMeals();
-        if(allmeals){
-            for(let i = 0; i < allmeals.length; i++){
-                if (allmeals[i].name === name){
-                    return JSON.parse(allmeals[i]);
-                }
-            }
-            //there is no meal with this name:
-            console.log("there is no meal with this name");
-            return {};
+    static getMeal(name) {
+        let allMeals = this.loadMeals();
+        console.log(Object.keys(allMeals).includes(name))
+        if (Object.keys(allMeals).includes(name)) {
+            var meal = allMeals[name]
+            console.log(meal)
+            return meal;
+
         }
-        else{
-            return {};
-        }
+        return undefined;
     }
 
-    static getUser(email, password){
+    static getUser(email, password) {
         let allusers = this.loadUsers();
-        console.log( Object.keys(allusers).includes(email))
-        if (Object.keys(allusers).includes(email)){
+        console.log(Object.keys(allusers).includes(email))
+        if (Object.keys(allusers).includes(email)) {
             var user = allusers[email]
             console.log(user)
-            if (user.password === password){
+            if (user.password === password) {
                 return user;
             }
         }
         return undefined;
     }
 
-    static addMeal(meal){
-        const ggg = { name: meal.name, price: meal.price, vegetarian: meal.vegetarian, vegan: meal.vegan, allergic: meal.allergic };
-        let existmeal = this.getMeal(meal.name);
-        if(existmeal){
-            //already exist
-            return {};
-        }
-        else{
-            let allMeals = this.loadMeals();
-
-            window.localStorage.setItem('meals', '{}');
-        }
-    }
-
-    static addMeal(meal){
-        //const meal = { name: meal.name, price: meal.price, vegetarian: meal.vegetarian, vegan: meal.vegan, allergic: meal.allergic };
-        let existmeal = this.getMeal(meal.name);
-        if(existmeal){
-            //already exist
-            return {};
-        }
-        else{
-            let allMeals = this.loadMeals();
-
-            window.localStorage.setItem('meals', '{}');
-        }
-    }
-
-    static addUser(user){
-        //const user = user;
-        let exist = this.getUser(user.email, user.password);
-        if(exist){
+    static addMeal(meal,user) {
+        let exist = this.getMeal(meal.name);
+        if (exist) {
             //already exist
             return undefined;
         }
-        else{
+        else {
+            let allMeals = this.loadMeals();
+            allMeals[meal.name] = meal;
+            window.localStorage.setItem('meals', JSON.stringify(allMeals));
+            return meal;
+        }
+    }
+
+    static addUser(user) {
+        //const user = user;
+        let exist = this.getUser(user.email, user.password);
+        if (exist) {
+            //already exist
+            return undefined;
+        }
+        else {
             let allUsers = this.loadUsers();
             allUsers[user.email] = user
             window.localStorage.setItem('users', JSON.stringify(allUsers));
