@@ -63,7 +63,10 @@ function showSignup() {
     document.body.appendChild(clon);
     document.getElementById('submitbtn_signup').addEventListener('click', signuplient.submitSignup);
     document.getElementById('button_nav_signup').addEventListener('click', showSignupPage);
-
+    document.getElementById('first_name').addEventListener('change', signuplient.verifyName);
+    document.getElementById('last_name').addEventListener('change', signuplient.verifyName);
+    document.getElementById('password_signup').addEventListener('change', signuplient.verifyPassword);
+    document.getElementById('re_password').addEventListener('change', signuplient.confirmPassword);
 }
 
 function showMenu() {
@@ -80,6 +83,7 @@ function showAddMealToMenu() {
     document.body.removeChild(document.body.lastElementChild);
     document.body.appendChild(clon);
     document.getElementById('button_nav_add_meal').addEventListener('click', showAddMealToMenuPage);
+    document.getElementById('submit_add_meal_btn').addEventListener('click', manageclient.addMealToMenu);
 
 }
 
@@ -98,10 +102,11 @@ function showMain() {
 
 }
 
-function showHomePage() {
+export function showHomePage() {
     console.log("mainpage");
     document.getElementById('button_nav_login').style.display = 'inline';
     document.getElementById('button_nav_signup').style.display = 'inline';
+    document.getElementById('button_nav_add_meal').style.display = 'inline';
 
 
     document.getElementById('button_nav_logout').style.display = 'none';
@@ -118,7 +123,7 @@ function showHomePage() {
     showMain();
 }
 
-function showLoginPage() {
+export function showLoginPage() {
     console.log("loginpage");
 
     document.getElementById('button_nav_logout').style.display = 'none';
@@ -135,7 +140,7 @@ function showLoginPage() {
     showLogin();
 }
 
-function showSignupPage() {
+export function showSignupPage() {
     console.log("signuppage");
 
     document.getElementById('button_nav_logout').style.display = 'none';
@@ -152,7 +157,7 @@ function showSignupPage() {
     showSignup();
 }
 
-function showMenuPage() {
+export function showMenuPage() {
     console.log("menupage");
 
     document.getElementById('button_nav_login').style.display = 'none';
@@ -176,7 +181,7 @@ function showMenuPage() {
     console.log('end menu');
 }
 
-function showAddMealToMenuPage() {
+export function showAddMealToMenuPage() {
     console.log("addmealpage");
 
     document.getElementById('button_nav_login').style.display = 'none';
@@ -198,7 +203,7 @@ function showAddMealToMenuPage() {
     showAddMealToMenu();
 }
 
-function showUpdateMealPage() {
+export function showUpdateMealPage() {
     console.log("signuppage");
 
     document.getElementById('button_nav_login').style.display = 'none';

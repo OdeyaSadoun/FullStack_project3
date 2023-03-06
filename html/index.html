@@ -49,7 +49,7 @@
     <template id="login">
         <div class="form">
             <h2>Fill in the following details:</h2>
-            <form id="login_form">
+            <div id="login_form">
                 <ul>
                     <li>
                         <label for="email"><b>Email:</b></label>
@@ -72,14 +72,14 @@
                     <a id="login_worngChoice" class="worngChoice" href="#" onclick="showSignupPage()">Not registered yet? Click here to
                         register</a>
                 </ul>
-            </form>
+            </div>
 
         </div>
     </template>
     <template id="signup">
         <div class="form">
             <h2>Fill in the following details:</h2>
-            <form id="signup_form" action="#login_form">
+            <div id="signup_form" action="#login_form">
                 <ul class="list">
                     <li>
                         <label for="first_name"><b>First name:</b></label>
@@ -127,7 +127,7 @@
                     </li>
                     <a id="signup_worngChoice" class="worngChoice" href="#" onclick="showLoginPage()">registered user? Click here to connect</a>
                 </ul>
-            </form>
+            </div>
         </div>
     </template>
 

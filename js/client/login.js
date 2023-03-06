@@ -4,8 +4,8 @@ import {FXMLhttpRequest} from '../FXMLHttpRequest/FXMLHttpRequest.js'
 
 export function submitLogin() {
 
-    let email_login = document.getElementById('email').value;
-    let password_login = document.getElementById('password').value;
+    let email_login = document.getElementById('email_login').value;
+    let password_login = document.getElementById('password_login').value;
 
     let logged_user = { email: "", password: "", fname: "", lname: "", phone: "" };
 
@@ -27,7 +27,7 @@ export function submitLogin() {
             };
 
             console.log('submitlogin');
-            page.showHomePage();
+            page.showMenuPage();
         }
     };
     req.open(

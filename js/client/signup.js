@@ -1,47 +1,44 @@
 import * as page from "../client/pages.js"
 import {FXMLhttpRequest} from '../FXMLHttpRequest/FXMLHttpRequest.js'
 
-document.getElementById('first_name').addEventListener('change', verifyName);
-document.getElementById('last_name').addEventListener('change', verifyName);
-document.getElementById('password_signup').addEventListener('change', verifyPassword);
-document.getElementById('re_password').addEventListener('change', confirmPassword);
 
 
 
-function verifyPassword() {
 
-    var pw = document.getElementById('password').value;
+export function verifyPassword() {
+
+    var pw = document.getElementById('password_signup').value;
 
     //check empty password field  
     if (pw == "") {
         document.getElementById("message").innerHTML = "No password was entered - must be entered";
-        document.getElementById("password").style.borderColor = "red";
+        document.getElementById("password_signup").style.borderColor = "red";
         return false;
     }
 
     //minimum password length validation  
     else if (pw.length < 8) {
         document.getElementById("message").innerHTML = "The length of the password must contain at least 8 characters";
-        document.getElementById("password").style.borderColor = "red";
+        document.getElementById("password_signup").style.borderColor = "red";
         return false;
     }
 
     //maximum length of password validation  
     else if (pw.length > 15) {
         document.getElementById("message").innerHTML = "The length of the password can contain no more than 15 characters";
-        document.getElementById("password").style.borderColor = "red";
+        document.getElementById("password_signup").style.borderColor = "red";
         return false;
     }
 
     else {
         document.getElementById("message").innerHTML = "The password is correct :)";
-        document.getElementById("password").style.borderColor = "green";
+        document.getElementById("password_signup").style.borderColor = "green";
     }
 
     return true;
 }
 
-function verifyName() {
+export function verifyName() {
 
     //function to verify the text fields
 
@@ -77,9 +74,9 @@ function verifyName() {
     return true;
 }
 
-function confirmPassword() {
+export function confirmPassword() {
     //function to confirm the password
-    var pw1 = document.getElementById("password").value;
+    var pw1 = document.getElementById("password_signup").value;
     var pw2 = document.getElementById("re_password").value;
 
     if (pw1 !== pw2 || !verifyPassword()) {
@@ -97,14 +94,14 @@ function confirmPassword() {
 
 export function submitSignup() {
 
-    let password_signup = document.getElementById('password').value;
+    let password_signup = document.getElementById('password_signup').value;
     let re_password_signup = document.getElementById('re_password').value;
 
     let fname = document.getElementById('first_name').value;
     let lname = document.getElementById('last_name').value;
     let phone_signup = document.getElementById('phone').value;
-    let email_signup = document.getElementById('email').value;
-
+    let email_signup = document.getElementById('email_signup').value;
+    console.log(fname, lname)
 
     if (!password_signup || !fname || !lname || !phone_signup || !email_signup || !re_password_signup) {
         alert('Please fill in all fields for registration!');
@@ -140,7 +137,7 @@ export function submitSignup() {
     req.open(
         'PUT',
         'server_fullstack3/addUser',
-        { email: email_signup, password: password_signup, first_name: fname, last_name: lname, phone: phone_signup },
+        { email: email_signup, password: password_signup, fname: fname, lname: lname, phone: phone_signup },
         );
     req.send();
 
