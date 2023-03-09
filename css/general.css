@@ -65,3 +65,7 @@ nav ul li a:visited {
 	color: #000;
 	border-right: 1px solid #8dd3d3;
 }
+
+.hidden{
+  display: none;
+}
