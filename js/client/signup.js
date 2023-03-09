@@ -2,9 +2,6 @@ import * as page from "../client/pages.js"
 import {FXMLhttpRequest} from '../FXMLHttpRequest/FXMLHttpRequest.js'
 
 
-
-
-
 export function verifyPassword() {
 
     var pw = document.getElementById('password_signup').value;
@@ -111,9 +108,8 @@ export function submitSignup() {
     var req = new FXMLhttpRequest();
 
     req.onload = function (response) {
-        console.log(response);
+        // console.log(response);
         if (response.status === 200) {
-            //200 = ok
             var user = response.user;
             if(user != undefined || user != null){
                 //there is user with the email
