@@ -14,7 +14,7 @@ export function submitLogin() {
     var req = new FXMLhttpRequest();
 
     req.onload = function (response) {
-        console.log('login- go to server');
+        console.log('submit login');
         console.log(response);
         if (response.status === 200) {
             //200 = ok
