@@ -20,8 +20,19 @@ export class db {
         }
     }
 
-    static getAllMeals() {
-        return loadMeals();
+    static getAllMeals(user_id) {
+        var meals = db.loadMeals();
+        console.log(meals)
+        var result = [];
+        for(var value of Object.values(meals)){
+            
+            console.log(value)
+            if (value.user_id == user_id){
+                result.push(value);
+            }
+
+        }
+        return result;
     }
 
     static getMeal(name) {
@@ -76,5 +87,23 @@ export class db {
             window.localStorage.setItem('users', JSON.stringify(allUsers));
             return user;
         }
+    }
+
+
+    //delete
+    static deleteUser(user){
+
+        let allusers = this.loadUsers();
+        delete allusers[user.email]
+
+        window.localStorage.setItem('users', JSON.stringify(allUsers));
+    }
+    
+    static deleteUser(user){
+
+        let allusers = this.loadUsers();
+        delete allusers[user.email]
+
+        window.localStorage.setItem('users', JSON.stringify(allUsers));
     }
 }
