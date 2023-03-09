@@ -47,9 +47,9 @@
 
 
     <template id="login">
-        <div class="form">
+        <div class="form" id="login_section">
             <h2>Fill in the following details:</h2>
-            <div id="login_form">
+            <form id="login_form">
                 <ul>
                     <li>
                         <label for="email"><b>Email:</b></label>
@@ -72,14 +72,14 @@
                     <a id="login_worngChoice" class="worngChoice" href="#" onclick="showSignupPage()">Not registered yet? Click here to
                         register</a>
                 </ul>
-            </div>
+            </form>
 
         </div>
     </template>
     <template id="signup">
         <div class="form">
             <h2>Fill in the following details:</h2>
-            <div id="signup_form" action="#login_form">
+            <form id="signup_form" action="#login_form">
                 <ul class="list">
                     <li>
                         <label for="first_name"><b>First name:</b></label>
@@ -127,15 +127,27 @@
                     </li>
                     <a id="signup_worngChoice" class="worngChoice" href="#" onclick="showLoginPage()">registered user? Click here to connect</a>
                 </ul>
-            </div>
+            </form>
         </div>
     </template>
 
-    <template id="menu">
+    <div class="hidden" id="menu">
+        <h3>Meals:</h3>
+        <ul id="meals_list">
+            <!-- Template for each task -->
+            <template id="meal-template">
+                <li>
+                    <label><span></span></label>
+                </li>
+            </template>
+        </ul>
+            
+            
+
         <div id="tablearea_menu"></div>
-    </template>
+        </div>
     <template id="add_meal_to_menu">
-        <div class="form">
+        <div class="form add_meal_div">
             <h2>Fill in the following details:</h2>
             <form id="add_meal_form">
                 <ul>
