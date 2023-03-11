@@ -10,8 +10,6 @@ document.getElementById('button_nav_logout').addEventListener('click', showHomeP
 document.getElementById('button_nav_signup').addEventListener('click', showSignupPage);
 document.getElementById('button_nav_menu').addEventListener('click', showMenuPage);
 document.getElementById('button_nav_add_meal').addEventListener('click', showAddMealToMenuPage);
-// document.getElementById('button_nav_update_menu').addEventListener('click', showUpdateMealPage);
-
 
 
 window.onload = function () {
@@ -50,10 +48,6 @@ function hideAddMealToMenu() {
     }
 }
 
-// function hideUpdateMeal() {
-//     document.getElementById('update_meal').style.display = 'none';
-// }
-
 function hideMainPage() {
     console.log("hide home page");
     document.getElementById('home').style.display = 'none';
@@ -63,7 +57,6 @@ function hideMeal() {
     console.log("hide view meal");
     document.getElementById('meal').style.display = 'none';
 }
-
 
 function showLogin() {
     var clon = document.getElementById('login').content.cloneNode(true);
@@ -99,22 +92,11 @@ function showAddMealToMenu() {
     document.getElementById('submit_add_meal_btn').addEventListener('click', manageclient.addMealToMenu);
 }
 
-// function showUpdateMeal() {
-//     var clon = document.getElementById('update_meal').content.cloneNode(true);
-//     document.body.removeChild(document.body.lastElementChild);
-//     document.body.appendChild(clon);
-//     document.getElementById('button_nav_update_menu').addEventListener('click', showUpdateMealPage);
-// }
-
 function showMain() {
     document.getElementById('home').style.display = 'inline';
     document.body.removeChild(document.body.lastElementChild);
     document.getElementById('button_nav_logout').addEventListener('click', showHomePage);
 }
-
-// function showMeal() {
-//     addMeal();
-// }
 
 export function showHomePage() {
     console.log("show home page");
@@ -125,7 +107,6 @@ export function showHomePage() {
     document.getElementById('button_nav_logout').style.display = 'none';
     document.getElementById('button_nav_menu').style.display = 'none';
     document.getElementById('button_nav_add_meal').style.display = 'none';
-    //document.getElementById('button_nav_update_menu').style.display = 'none';
 
     hideLogin();
     hideSignup();
@@ -142,7 +123,6 @@ export function showLoginPage() {
     document.getElementById('button_nav_logout').style.display = 'none';
     document.getElementById('button_nav_menu').style.display = 'none';
     document.getElementById('button_nav_add_meal').style.display = 'none';
-    //document.getElementById('button_nav_update_menu').style.display = 'none';
 
     hideMainPage();
     hideSignup();
@@ -159,7 +139,6 @@ export function showSignupPage() {
     document.getElementById('button_nav_logout').style.display = 'none';
     document.getElementById('button_nav_menu').style.display = 'none';
     document.getElementById('button_nav_add_meal').style.display = 'none';
-    //document.getElementById('button_nav_update_menu').style.display = 'none';
 
     hideMainPage();
     hideLogin();
@@ -179,7 +158,6 @@ export function showMenuPage() {
     document.getElementById('button_nav_logout').style.display = 'inline';
     document.getElementById('button_nav_menu').style.display = 'inline';
     document.getElementById('button_nav_add_meal').style.display = 'inline';
-    //document.getElementById('button_nav_update_menu').style.display = 'inline';
 
     hideMainPage();
     hideLogin();
@@ -202,7 +180,6 @@ export function showAddMealToMenuPage() {
     document.getElementById('button_nav_logout').style.display = 'inline';
     document.getElementById('button_nav_menu').style.display = 'inline';
     document.getElementById('button_nav_add_meal').style.display = 'inline';
-    //document.getElementById('button_nav_update_menu').style.display = 'inline';
 
     hideMainPage();
     hideLogin();
@@ -213,33 +190,3 @@ export function showAddMealToMenuPage() {
     showAddMealToMenu();
 }
 
-// export function showUpdateMealPage() {
-//     console.log("show update page");
-
-//     document.getElementById('button_nav_login').style.display = 'none';
-//     document.getElementById('button_nav_signup').style.display = 'none';
-
-
-//     document.getElementById('button_nav_logout').style.display = 'inline';
-//     document.getElementById('button_nav_menu').style.display = 'inline';
-//     document.getElementById('button_nav_add_meal').style.display = 'inline';
-//     document.getElementById('button_nav_update_menu').style.display = 'inline';
-
-//     hideMainPage();
-//     hideLogin();
-//     hideSignup();
-//     hideMenu();
-//     hideAddMealToMenu();
-
-//     showUpdateMeal();
-// }
-
-// export function showMealPage() {
-//     console.log('show meal page');
-//     hideMainPage();
-//     hideLogin();
-//     hideSignup();
-//     hideMenu();
-
-//     showMeal();
-// }
