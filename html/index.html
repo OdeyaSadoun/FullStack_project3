@@ -22,12 +22,12 @@
         <nav>
             <div class="section-inner">
                 <ul class="buttons_nav">
-                    <li id="button_nav_login"><a href="#" >Login</a></li>
-                    <li id="button_nav_logout"><a href="#" >Logout</a></li>
-                    <li id="button_nav_signup"><a href="#" >Signup</a></li>
-                    <li id="button_nav_menu"><a href="#" >Menu</a></li>
-                    <li id="button_nav_add_meal"><a href="#" >Add Meal</a></li>
-                    <li id="button_nav_update_menu"><a href="#" >Update Meal</a></li>
+                    <li id="button_nav_login"><a href="#">Login</a></li>
+                    <li id="button_nav_logout"><a href="#">Logout</a></li>
+                    <li id="button_nav_signup"><a href="#">Signup</a></li>
+                    <li id="button_nav_menu"><a href="#">Menu</a></li>
+                    <li id="button_nav_add_meal"><a href="#">Add Meal</a></li>
+                    <!-- <li id="button_nav_update_menu"><a href="#">Update Meal</a></li> -->
                 </ul>
             </div>
         </nav>
@@ -40,8 +40,8 @@
         <p class="hellotext">click to login or sign up</p>
 
         <div id="buttons" class="buttons">
-            <button id="showLoginPage_btn" class="btn" >login</button>
-            <button id="showSignupPage_btn" class="btn" >sign up</button>
+            <button id="showLoginPage_btn" class="btn">login</button>
+            <button id="showSignupPage_btn" class="btn">sign up</button>
         </div>
     </div>
 
@@ -66,10 +66,11 @@
                     <li class="buttons">
                         <button id="submitbtn_login" name="submitbtn" class="btn">Submit</button>
                         <button type="reset" class="btn" value="Reset">Reset</button>
-                        
+
                     </li>
-                    
-                    <a id="login_worngChoice" class="worngChoice" href="#" onclick="showSignupPage()">Not registered yet? Click here to
+
+                    <a id="login_worngChoice" class="worngChoice" href="#" onclick="showSignupPage()">Not registered
+                        yet? Click here to
                         register</a>
                 </ul>
             </form>
@@ -125,7 +126,8 @@
                         <button type="button" id="submitbtn_signup" name="submitbtn" class="btn">Submit</button>
                         <button type="reset" class="btn" value="Reset">Reset</button>
                     </li>
-                    <a id="signup_worngChoice" class="worngChoice" href="#" onclick="showLoginPage()">registered user? Click here to connect</a>
+                    <a id="signup_worngChoice" class="worngChoice" href="#" onclick="showLoginPage()">registered user?
+                        Click here to connect</a>
                 </ul>
             </form>
         </div>
@@ -134,18 +136,21 @@
     <div class="hidden" id="menu">
         <h3>Meals:</h3>
         <ul id="meals_list">
-            <!-- Template for each task -->
             <template id="meal-template">
                 <li>
-                    <label><span></span></label>
+                    <input type="text" id="name_meal_in_list"></input>
+                    <input type="number" id="price_meal_in_list"></input>
+                    <input type="checkbox" id="vegetarian_checkbox"></input>
+                    <input type="checkbox" id="vegan_checkbox"></input>
+                    <input type="checkbox" id="allergic_checkbox"></input>
+                    <button id="view_meal_button">view</button>
+                    <button id="update_meal_button">update</button>
+                    <button id="delete_meal_button">delete</button>
                 </li>
             </template>
         </ul>
-            
-            
 
-        <div id="tablearea_menu"></div>
-        </div>
+    </div>
     <template id="add_meal_to_menu">
         <div class="form add_meal_div">
             <h2>Fill in the following details:</h2>
@@ -175,7 +180,7 @@
                     </li>
 
                     <li class="buttons">
-                        <button type="button" id="submit_add_meal_btn" name="submitbtn" class="btn" >Add
+                        <button type="button" id="submit_add_meal_btn" name="submitbtn" class="btn">Add
                             Meal</button>
                         <button type="reset" class="btn" value="Reset">Reset</button>
                     </li>
@@ -183,32 +188,14 @@
             </form>
         </div>
     </template>
-    <template id="update_meal">
-        <div class="form">
-            <form id="update_meal_form">
-                <ul>
-                    <li>
-                        <label for="name"><b>Enter the name of the meal to update:</b></label>
-                        <input class="text" type="text" placeholder="Name of the meal:" id="name" name="name" required>
-                    </li>
 
-
-                    <li class="buttons">
-                        <button type="button" id="submitbtn" name="submitbtn" class="btn"
-                            onclick="searchTheMeal()">Search</button>
-                    </li>
-                </ul>
-            </form>
-        </div>
-    </template>
-
-    <script src="../js/client/login.js" type="module" ></script>
-    <script src="../js/client/managemaels.js" type="module" ></script>
-    <script src="../js/client/pages.js" type="module" ></script>
-    <script src="../js/client/signup.js" type="module" ></script>
-    <script src="../js/FXMLHttpRequest/FXMLHttpRequest.js" type="module" ></script>
-    <script src="../js/network/network.js" type="module" ></script>
-    <script src="../js/server/server.js" type="module" ></script>
+    <script src="../js/client/login.js" type="module"></script>
+    <script src="../js/client/managemaels.js" type="module"></script>
+    <script src="../js/client/pages.js" type="module"></script>
+    <script src="../js/client/signup.js" type="module"></script>
+    <script src="../js/FXMLHttpRequest/FXMLHttpRequest.js" type="module"></script>
+    <script src="../js/network/network.js" type="module"></script>
+    <script src="../js/server/server.js" type="module"></script>
 
 
 

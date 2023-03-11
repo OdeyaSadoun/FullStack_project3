@@ -106,18 +106,7 @@ export class server {
     }
 }
     static handle_DELETE(resource, body, respons_func) {
-    if (resource === '/deleteUser') {
-        let user = db.deleteUser(body.email);
-        if (user) {
-            response = { status: 200, user: { last_name: user.last_name, first_name: user.first_name, phone: user.phone } };
-            respons_func(response);
-        }
-        else {
-            let response = { status: 404, user: undefined };
-            respons_func(response);
-        }
-    }
-    else if (resource === '/deleteMeal') {
+    if (resource === '/deleteMeal') {
         let meal = db.deleteMeal(body.name);
         if (meal) {
             response = { status: 200, meal: { name: meal.name, price: meal.price, vegetarian: meal.vegetarian, vegan: meal.vegan, allergic: meal.allergic } };
