@@ -24,25 +24,24 @@ export class db {
         var meals = db.loadMeals();
         console.log(meals)
         var result = [];
-        for(var value of Object.values(meals)){
-            
+        for(var value of Object.values(meals)){     
             console.log(value)
             if (value.user_id == user_id){
                 result.push(value);
             }
-
         }
         return result;
     }
 
-    static getMeal(name) {
+    static getMeal(name, id) {
         let allMeals = this.loadMeals();
         console.log(Object.keys(allMeals).includes(name))
         if (Object.keys(allMeals).includes(name)) {
             var meal = allMeals[name]
             console.log(meal)
-            return meal;
-
+            if(meal.user_id === id){
+                return meal;
+            }
         }
         return undefined;
     }
@@ -60,7 +59,7 @@ export class db {
         return undefined;
     }
 
-    static addMeal(meal,user) {
+    static addMeal(meal) {
         let exist = this.getMeal(meal.name);
         if (exist) {
             //already exist
@@ -89,7 +88,6 @@ export class db {
         }
     }
 
-
     //delete
     static deleteUser(user){
 
@@ -99,11 +97,14 @@ export class db {
         window.localStorage.setItem('users', JSON.stringify(allUsers));
     }
     
-    static deleteUser(user){
+    static deleteMeal(name){
 
-        let allusers = this.loadUsers();
-        delete allusers[user.email]
+        let allMeals = this.loadMeals();
+        let meal = allMeals[name];
+        console.log('db delete meal: ', meal);
+        delete allMeals[name];
 
-        window.localStorage.setItem('users', JSON.stringify(allUsers));
+        window.localStorage.setItem('meals', JSON.stringify(allMeals));
+        return meal;
     }
 }
