@@ -90,6 +90,11 @@ export function confirmPassword() {
 }
 
 export function submitSignup() {
+    /**
+     * A function to register to the system by entering the appropriate values.
+       The input is checked in the additional functions on this page.
+       After registration - the system takes the user to the login page by username and password.
+     */
 
     let password_signup = document.getElementById('password_signup').value;
     let re_password_signup = document.getElementById('re_password').value;
@@ -113,7 +118,6 @@ export function submitSignup() {
             var user = response.user;
             if(user != undefined || user != null){
                 //there is user with the email
-                alert('The user already exists in the system! You must log in')
                 page.showLoginPage();
             }
             else{
