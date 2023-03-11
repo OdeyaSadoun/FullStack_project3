@@ -15,7 +15,7 @@ export function addMealToMenu() {
         console.log('add meal - client');
         console.log(response);
         if (response.status === 200) {
-
+            page.showMenuPage();
         }
     };
     req.open(
@@ -52,14 +52,20 @@ function addMeal(meal) {
     allergic_checkbox.checked = meal.allergic;
 
     const view_meal_button = meal_item.getElementById('view_meal_button');
-
+    console.log(view_meal_button);
+    view_meal_button.addEventListener('click', function(){
+        viewMeal(span_name_meal_in_list.value);
+    });
 
     const update_meal_button = meal_item.getElementById('update_meal_button');
+    update_meal_button.addEventListener('click',updateMeal);
 
 
     const delete_meal_button = meal_item.getElementById('delete_meal_button');
+    delete_meal_button.addEventListener('click',function(){
+        deleteMeal(span_name_meal_in_list.value);
+    });
 
-    
       
     mealsList.appendChild(meal_item);
 }
@@ -82,84 +88,98 @@ export function viewAllMeals() {
         'server_fullstack3/getAllMeals',
         { user_id: email });
     req.send();
+}
+
+function showOneMeal(meal){
+    const mealsList = document.getElementById('meals_list');
+    const mealsElems = mealsList.querySelectorAll('li');
+    mealsElems.forEach(meal => {
+        mealsList.removeChild(meal);
+    });
+
+    var clon = document.getElementById('meal').content.cloneNode(true);
+
+    
+
+    document.body.removeChild(document.body.lastElementChild);
+    document.body.appendChild(clon);
+
+    
+    document.getElementById('name_meal').innerHTML = meal.name;
+    document.getElementById('price_meal').innerHTML = meal.price;
+    document.getElementById('vegetarian_checkbox_meal').innerHTML = meal.vegetarian;
+    document.getElementById('vegan_checkbox_meal').innerHTML = meal.vegan;
+    document.getElementById('allergic_checkbox_meal').innerHTML = meal.allergic;
 
 }
 
-function viewMeal() {
+function viewMeal(name) {
+    console.log('viewmeal');
+    var email = getLoggedUser().email;
     var req = new FXMLhttpRequest();
+    req.onload = function (response) {
+        if (response.status === 200) {
+            var meal = response.meal;
 
+            console.log('rec meal: ', meal);
+            showOneMeal(meal);
+        }
+    };
     req.open(
-        'PUT',
-        'server_fulstack3/submitSignup',
-        { email: email_signup, password: password_signup, first_name: fname, last_name: lname, phone: phone_signup },
-        function (response) {
-            console.log(response);
-            if (response.status === 200) {
-                //200 = ok
-                var user = response.user;
-                if (user != undefined || user != null) {
-                    //there is user with the email
-                    alert('The user already exists in the system! You must log in')
-                }
-                else {
-                    addUser();
-                }
-
-                showLoginPage();
-            }
-        });
+        'GET',
+        'server_fullstack3/getMeal',
+        { meal: {name: name}, user: {id: email} });
+        console.log(req);
     req.send();
+}
 
+function getMeal(name){
+    console.log('viewmeal');
+    var email = getLoggedUser().email;
+    var req = new FXMLhttpRequest();
+    req.onload = function (response) {
+        if (response.status === 200) {
+            var meal = response.meal;
+            return meal;
+        }
+    };
+    req.open(
+        'GET',
+        'server_fullstack3/getMeal',
+        { meal: {name: name}, user: {id: email} });
+        console.log(req);
+    req.send();
 }
 
 function updateMeal() {
-    var req = new FXMLhttpRequest();
-    req.open(
-        'PUT',
-        'server_fulstack3/submitSignup',
-        { email: email_signup, password: password_signup, first_name: fname, last_name: lname, phone: phone_signup },
-        function (response) {
-            console.log(response);
-            if (response.status === 200) {
-                //200 = ok
-                var user = response.user;
-                if (user != undefined || user != null) {
-                    //there is user with the email
-                    alert('The user already exists in the system! You must log in')
-                }
-                else {
-                    addUser();
-                }
-
-                showLoginPage();
-            }
-        });
-    req.send();
+    console.log('update meal- client');
+    // let price = document.getElementById('price').value;
+    // let name = document.getElementById('name').value;
+    // let vegetarian = document.getElementById('option1').checked;
+    // let vegan = document.getElementById('option2').checked;
+    // let allergic = document.getElementById('option3').checked;
 
 }
 
-function deleteMeal() {
+function deleteMeal(name) {
+    console.log('name- delete meal- client', name);
     var req = new FXMLhttpRequest();
+
+    req.onload = function (response) {
+        if (response.status === 200) {
+            console.log('delete meal succes');
+            alert('delete meal: '+ name);
+            const mealsList = document.getElementById('meals_list');
+            const mealsElems = mealsList.querySelectorAll('li');
+            mealsElems.forEach(meal => {
+                mealsList.removeChild(meal);
+            });
+            page.showMenuPage();
+        }
+    };
     req.open(
-        'PUT',
-        'server_fulstack3/submitSignup',
-        { email: email_signup, password: password_signup, first_name: fname, last_name: lname, phone: phone_signup },
-        function (response) {
-            console.log(response);
-            if (response.status === 200) {
-                //200 = ok
-                var user = response.user;
-                if (user != undefined || user != null) {
-                    //there is user with the email
-                    alert('The user already exists in the system! You must log in')
-                }
-                else {
-                    addUser();
-                }
-
-                showLoginPage();
-            }
-        });
+        'DELETE',
+        'server_fullstack3/deleteMeal',
+        { meal: {name: name}});
     req.send();
-
 }

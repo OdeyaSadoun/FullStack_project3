@@ -59,6 +59,12 @@ function hideMainPage() {
     document.getElementById('home').style.display = 'none';
 }
 
+function hideMeal() {
+    console.log("hide view meal");
+    document.getElementById('meal').style.display = 'none';
+}
+
+
 function showLogin() {
     var clon = document.getElementById('login').content.cloneNode(true);
     document.body.removeChild(document.body.lastElementChild);
@@ -106,6 +112,10 @@ function showMain() {
     document.getElementById('button_nav_logout').addEventListener('click', showHomePage);
 }
 
+// function showMeal() {
+//     addMeal();
+// }
+
 export function showHomePage() {
     console.log("show home page");
     document.getElementById('button_nav_login').style.display = 'inline';
@@ -121,7 +131,7 @@ export function showHomePage() {
     hideSignup();
     hideMenu();
     hideAddMealToMenu();
-    // hideUpdateMeal();
+    hideMeal();
 
     showMain();
 }
@@ -138,7 +148,7 @@ export function showLoginPage() {
     hideSignup();
     hideMenu();
     hideAddMealToMenu();
-    // hideUpdateMeal();
+    hideMeal();
 
     showLogin();
 }
@@ -155,7 +165,7 @@ export function showSignupPage() {
     hideLogin();
     hideMenu();
     hideAddMealToMenu();
-    // hideUpdateMeal();
+    hideMeal();
 
     showSignup();
 }
@@ -175,7 +185,7 @@ export function showMenuPage() {
     hideLogin();
     hideSignup();
     hideAddMealToMenu();
-    // hideUpdateMeal();
+    hideMeal();
 
     showMenu();
     manageclient.viewAllMeals();
@@ -198,7 +208,7 @@ export function showAddMealToMenuPage() {
     hideLogin();
     hideSignup();
     hideMenu();
-    // hideUpdateMeal();
+    hideMeal();
 
     showAddMealToMenu();
 }
@@ -222,4 +232,14 @@ export function showAddMealToMenuPage() {
 //     hideAddMealToMenu();
 
 //     showUpdateMeal();
+// }
+
+// export function showMealPage() {
+//     console.log('show meal page');
+//     hideMainPage();
+//     hideLogin();
+//     hideSignup();
+//     hideMenu();
+
+//     showMeal();
 // }

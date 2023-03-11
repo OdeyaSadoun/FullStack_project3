@@ -69,3 +69,6 @@ nav ul li a:visited {
 .hidden{
   display: none;
 }
+.hidden_meal{
+  display: none;
+}
