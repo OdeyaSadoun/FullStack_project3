@@ -19,7 +19,7 @@ export function addMealToMenu() {
         }
     };
     req.open(
-        'PUT',
+        'POST',
         'server_fullstack3/addMeal',
         { meal: { name: name, price: price, vegetarian: vegetarian, vegan: vegan, allergic: allergic }, user: { email: getLoggedUser().email } });
     req.send();
@@ -158,7 +158,20 @@ function updateMeal() {
     // let vegetarian = document.getElementById('option1').checked;
     // let vegan = document.getElementById('option2').checked;
     // let allergic = document.getElementById('option3').checked;
+    // var req = new FXMLhttpRequest();
 
+    // req.onload = function (response) {
+    //     console.log('add meal - client');
+    //     console.log(response);
+    //     if (response.status === 200) {
+    //         page.showMenuPage();
+    //     }
+    // };
+    // req.open(
+    //     'PUT',
+    //     'server_fullstack3/updateMeal',
+    //     { meal: { name: name, price: price, vegetarian: vegetarian, vegan: vegan, allergic: allergic }, user: { email: getLoggedUser().email } });
+    // req.send();
 }
 
 function deleteMeal(name) {
