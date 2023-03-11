@@ -20,6 +20,11 @@ form li {
     padding-bottom: 20px;
     display: flex;
 }
+/* li {
+    list-style: none;
+    padding-bottom: 20px;
+    display: flex;
+} */
 
 /* form li label {
     padding-left: 5px;

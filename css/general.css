@@ -72,3 +72,12 @@ nav ul li a:visited {
 .hidden_meal{
   display: none;
 }
+
+/* #head_meals{
+text-align: left
+;} */
+
+#meals_list{
+  list-style: none;
+  padding-bottom: 20px;
+}
