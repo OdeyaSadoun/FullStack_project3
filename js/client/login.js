@@ -3,7 +3,13 @@ import { FXMLhttpRequest } from '../FXMLHttpRequest/FXMLHttpRequest.js'
 
 let logged_user = { email: "", password: "", fname: "", lname: "", phone: "" };
 
+
 export function submitLogin() {
+
+    //A function for logging in after entering a username and password.
+    //If the user is in the DB, he goes to the main page,
+    // which is the dishes of that user's restaurant.
+
 
     let email_login = document.getElementById('email_login').value;
     let password_login = document.getElementById('password_login').value;
@@ -11,8 +17,7 @@ export function submitLogin() {
     var req = new FXMLhttpRequest();
 
     req.onload = function (response) {
-        console.log('submit login');
-        // console.log(response);
+        // console.log('submit login');
         if (response.status === 200) {
             var user = response.user;
             logged_user = {
@@ -24,6 +29,11 @@ export function submitLogin() {
             };
 
             page.showMenuPage();
+        }
+        else {
+            //if the user isnt exist
+            alert('there is no user with this mail and password- you mast sign up');
+            page.showSignupPage();
         }
     };
     req.open(
