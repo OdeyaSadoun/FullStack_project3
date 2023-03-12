@@ -73,7 +73,7 @@ export class server {
             else {
                 console.log('add meal to db');
                 var rec_meal = { name: body.meal.name, price: body.meal.price, vegetarian: body.meal.vegetarian, vegan: body.meal.vegan, allergic: body.meal.allergic };
-                console.log('recmeal',rec_meal);
+                console.log('recmeal', rec_meal);
                 rec_meal['user_id'] = body.user.email
                 var meal_after_addition = db.addMeal(rec_meal);
                 console.log(meal_after_addition);

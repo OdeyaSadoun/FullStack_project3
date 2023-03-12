@@ -103,18 +103,14 @@ function showOneMeal(meal){
 
     var clon = document.getElementById('meal').content.cloneNode(true);
 
-    
-
     document.body.removeChild(document.body.lastElementChild);
     document.body.appendChild(clon);
-
     
     document.getElementById('name_meal').innerHTML = meal.name;
     document.getElementById('price_meal').innerHTML = meal.price;
     document.getElementById('vegetarian_checkbox_meal').innerHTML = meal.vegetarian;
     document.getElementById('vegan_checkbox_meal').innerHTML = meal.vegan;
     document.getElementById('allergic_checkbox_meal').innerHTML = meal.allergic;
-
 }
 
 function viewMeal(name) {
@@ -137,6 +133,11 @@ function viewMeal(name) {
     req.send();
 }
 
+export function searchMeal(name){
+    viewMeal(name);
+}
+
+
 function getMeal(name){
     console.log('viewmeal');
     var email = getLoggedUser().email;
@@ -157,11 +158,14 @@ function getMeal(name){
 
 function updateMeal(name) {
     console.log('update meal- client');
-    let price = document.getElementById('price_meal_in_list').value;
-    let newname = document.getElementById('name_meal_in_list').value;
-    let vegetarian = document.getElementById('vegetarian_checkbox').checked;
-    let vegan = document.getElementById('vegan_checkbox').checked;
-    let allergic = document.getElementById('allergic_checkbox').checked;
+
+//const mealsList = document.getElementById('meals_list');
+    const meal = document.getElementById('menu');
+    let price = meal.getElementById('price_meal_in_list').value;
+    let newname = meal.getElementById('name_meal_in_list').value;
+    let vegetarian = meal.getElementById('vegetarian_checkbox').checked;
+    let vegan = meal.getElementById('vegan_checkbox').checked;
+    let allergic = meal.getElementById('allergic_checkbox').checked;
     console.log(price,newname,vegetarian,vegan,allergic);
 
 console.log('new name: ', newname)

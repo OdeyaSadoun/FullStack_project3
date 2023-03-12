@@ -27,6 +27,7 @@
                     <li id="button_nav_signup"><a href="#">Signup</a></li>
                     <li id="button_nav_menu"><a href="#">Menu</a></li>
                     <li id="button_nav_add_meal"><a href="#">Add Meal</a></li>
+                    <li id="button_nav_search_meal"><a href="#">Search Meal</a></li>
                 </ul>
             </div>
         </nav>
@@ -153,8 +154,10 @@
     </div>
 
     <template id="meal">
-        <div>
+        <div id="div_meal">
             <br>
+            <br>
+
             <span id="name_meal"></span>
             <br>
             <span id="price_meal"></span>
@@ -208,6 +211,26 @@
             </form>
         </div>
     </template>
+    <template id="search_meal">
+        <div class="form search_meal_div">
+            <h2>Fill in the following details:</h2>
+            <form id="search_meal_form">
+                <ul>
+                    <li>
+                        <label for="name"><b>Search:</b></label>
+                        <input class="text" type="text" placeholder="Enter the name of the meal:" id="search"
+                            name="search">
+                    </li>
+
+
+                    <li class="buttons">
+                        <button type="button" id="search_meal_btn" name="submitbtn" class="btn">Search</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </template>
+
 
     <script src="../js/client/login.js" type="module"></script>
     <script src="../js/client/managemaels.js" type="module"></script>
