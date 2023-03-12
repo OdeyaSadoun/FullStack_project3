@@ -1,6 +1,7 @@
 import { network } from '../network/network.js'
 
 export class FXMLhttpRequest {
+    
     onload = null;
 
     open(method, url, body) {
@@ -9,10 +10,8 @@ export class FXMLhttpRequest {
         this.body = body;
         this.status = 0;
     }
-
     
     send() {
         network.send(this);
     }
-
 }
