@@ -11,7 +11,7 @@ export class network{
         }
         else if(FXMLhttpRequest.url.split('/')[0] === 'server_fullstack3'){
             server.handle(FXMLhttpRequest, function (response){
-                console.log('network: responding to client with ', response)
+                console.log('network response to client ', response)
                 FXMLhttpRequest.onload(response);
             })
         }
