@@ -12,16 +12,14 @@ document.getElementById('button_nav_menu').addEventListener('click', showMenuPag
 document.getElementById('button_nav_add_meal').addEventListener('click', showAddMealToMenuPage);
 document.getElementById('button_nav_search_meal').addEventListener('click', showSearchMealPage);
 
-
-
 window.onload = function () {
     console.log("load page");
     showHomePage();
     console.log("after load page");
-
 };
 
 
+//hide:
 function hideLogin() {
     const login_element = document.getElementById('login_section');
     if (login_element) {
@@ -78,6 +76,7 @@ function hideSearchMeal() {
     });
 }
 
+//show:
 function showLogin() {
     var clon = document.getElementById('login').content.cloneNode(true);
     document.body.removeChild(document.body.lastElementChild);
@@ -128,12 +127,10 @@ function showSearchMeal() {
     });
 }
 
-
+//show pages:
 export function showHomePage() {
-    console.log("show home page");
     document.getElementById('button_nav_login').style.display = 'inline';
     document.getElementById('button_nav_signup').style.display = 'inline';
-
     document.getElementById('button_nav_logout').style.display = 'none';
     document.getElementById('button_nav_menu').style.display = 'none';
     document.getElementById('button_nav_add_meal').style.display = 'none';
@@ -145,13 +142,10 @@ export function showHomePage() {
     hideAddMealToMenu();
     hideMeal();
     hideSearchMeal();
-
     showMain();
 }
 
 export function showLoginPage() {
-    console.log("show login page");
-
     document.getElementById('button_nav_logout').style.display = 'none';
     document.getElementById('button_nav_menu').style.display = 'none';
     document.getElementById('button_nav_add_meal').style.display = 'none';
@@ -163,13 +157,10 @@ export function showLoginPage() {
     hideAddMealToMenu();
     hideMeal();
     hideSearchMeal();
-
     showLogin();
 }
 
 export function showSignupPage() {
-    console.log("show signup page");
-
     document.getElementById('button_nav_logout').style.display = 'none';
     document.getElementById('button_nav_menu').style.display = 'none';
     document.getElementById('button_nav_add_meal').style.display = 'none';
@@ -181,16 +172,12 @@ export function showSignupPage() {
     hideAddMealToMenu();
     hideMeal();
     hideSearchMeal();
-
     showSignup();
 }
 
 export function showMenuPage() {
-    console.log("show menu page");
-
     document.getElementById('button_nav_login').style.display = 'none';
     document.getElementById('button_nav_signup').style.display = 'none';
-
     document.getElementById('button_nav_logout').style.display = 'inline';
     document.getElementById('button_nav_menu').style.display = 'inline';
     document.getElementById('button_nav_add_meal').style.display = 'inline';
@@ -202,19 +189,13 @@ export function showMenuPage() {
     hideAddMealToMenu();
     hideMeal();
     hideSearchMeal();
-
     showMenu();
     manageclient.viewAllMeals();
-    console.log('end show menu page');
 }
 
 export function showAddMealToMenuPage() {
-    console.log("show add meal to page");
-
     document.getElementById('button_nav_login').style.display = 'none';
     document.getElementById('button_nav_signup').style.display = 'none';
-
-
     document.getElementById('button_nav_logout').style.display = 'inline';
     document.getElementById('button_nav_menu').style.display = 'inline';
     document.getElementById('button_nav_add_meal').style.display = 'inline';
@@ -227,7 +208,6 @@ export function showAddMealToMenuPage() {
     hideMenu();
     hideMeal();
     hideSearchMeal();
-
     showAddMealToMenu();
 }
 
@@ -238,6 +218,5 @@ function showSearchMealPage() {
     hideMenu();
     hideAddMealToMenu();
     hideMeal();
-
     showSearchMeal();
 }
