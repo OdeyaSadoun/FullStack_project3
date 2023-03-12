@@ -33,11 +33,13 @@ function addMeal(meal) {
     const span_name_meal_in_list = meal_item.getElementById('name_meal_in_list');
     span_name_meal_in_list.textContent = meal.name;
     span_name_meal_in_list.value = meal.name;
-
+    const old_meal_name = meal.name;
+    console.log('old:' , old_meal_name);
 
     const span_price_meal_in_list = meal_item.getElementById('price_meal_in_list');
     span_price_meal_in_list.textContent = meal.price;
     span_price_meal_in_list.value = meal.price;
+
 
     const vegetarian_checkbox = meal_item.getElementById('vegetarian_checkbox');
     vegetarian_checkbox.textContent = meal.vegetarian;
@@ -58,7 +60,9 @@ function addMeal(meal) {
     });
 
     const update_meal_button = meal_item.getElementById('update_meal_button');
-    update_meal_button.addEventListener('click',updateMeal);
+    update_meal_button.addEventListener('click',function(){
+        updateMeal(old_meal_name);
+    });
 
 
     const delete_meal_button = meal_item.getElementById('delete_meal_button');
@@ -151,27 +155,32 @@ function getMeal(name){
     req.send();
 }
 
-function updateMeal() {
+function updateMeal(name) {
     console.log('update meal- client');
-    // let price = document.getElementById('price').value;
-    // let name = document.getElementById('name').value;
-    // let vegetarian = document.getElementById('option1').checked;
-    // let vegan = document.getElementById('option2').checked;
-    // let allergic = document.getElementById('option3').checked;
-    // var req = new FXMLhttpRequest();
+    let price = document.getElementById('price_meal_in_list').value;
+    let newname = document.getElementById('name_meal_in_list').value;
+    let vegetarian = document.getElementById('vegetarian_checkbox').checked;
+    let vegan = document.getElementById('vegan_checkbox').checked;
+    let allergic = document.getElementById('allergic_checkbox').checked;
+    console.log(price,newname,vegetarian,vegan,allergic);
 
-    // req.onload = function (response) {
-    //     console.log('add meal - client');
-    //     console.log(response);
-    //     if (response.status === 200) {
-    //         page.showMenuPage();
-    //     }
-    // };
-    // req.open(
-    //     'PUT',
-    //     'server_fullstack3/updateMeal',
-    //     { meal: { name: name, price: price, vegetarian: vegetarian, vegan: vegan, allergic: allergic }, user: { email: getLoggedUser().email } });
-    // req.send();
+console.log('new name: ', newname)
+
+    var req = new FXMLhttpRequest();
+
+    req.onload = function (response) {
+        console.log('update meal - client');
+        console.log(response);
+        if (response.status === 200) {
+            page.showMenuPage();
+        }
+    };
+
+    req.open(
+        'PUT',
+        'server_fullstack3/updateMeal',
+        { meal: { oldname: name, newname: newname, price: price, vegetarian: vegetarian, vegan: vegan, allergic: allergic }, user: { email: getLoggedUser().email } });
+    req.send();
 }
 
 function deleteMeal(name) {

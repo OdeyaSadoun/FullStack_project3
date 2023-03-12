@@ -12,12 +12,14 @@ document.getElementById('button_nav_menu').addEventListener('click', showMenuPag
 document.getElementById('button_nav_add_meal').addEventListener('click', showAddMealToMenuPage);
 
 
+
 window.onload = function () {
     console.log("load page");
     showHomePage();
     console.log("after load page");
 
 };
+
 
 function hideLogin() {
     const login_element = document.getElementById('login_section');
@@ -55,7 +57,14 @@ function hideMainPage() {
 
 function hideMeal() {
     console.log("hide view meal");
-    document.getElementById('meal').style.display = 'none';
+    var meal = document.getElementById('meal');
+    if (meal) {
+        document.getElementById('meal').style.display = 'none';
+    }
+    window.addEventListener('unload', function() {
+        const templateTag = document.querySelector('#meal');
+        templateTag.style.display = 'none';
+      });
 }
 
 function showLogin() {

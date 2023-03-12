@@ -56,26 +56,33 @@ export class server {
     }
     static handle_PUT(resource, body, respons_func) {
         if (resource === '/updateMeal') {
-            // var meal = db.getMeal(body.meal.name);
-            // var response = {}
-            // // if user exists
-            // if (meal !== undefined) {
-            //     console.log('meal already exists');
-            //     response = { status: 404, meal: undefined };
-            //     respons_func(response);
-            // }
-            // else {
-            //     console.log('add meal to db');
-            //     var rec_meal = body.meal
-            //     rec_meal['user_id'] = body.user.email
-            //     var meal_after_addition = db.addMeal(rec_meal);
-            //     console.log(meal_after_addition);
-            //     response = {
-            //         status: 200,
-            //         meal: { name: meal_after_addition.name, price: meal_after_addition.price, vegetarian: meal_after_addition.vegetarian, vegan: meal_after_addition.vegan, allergic: meal_after_addition.allergic }
-            //     }
-            //     respons_func(response);
-            // }
+            console.log('delete to update')
+            var oldmeal = db.deleteMeal(body.meal.oldname);
+            console.log('delete to update', oldmeal)
+            console.log('get meal to update')
+            var newMeal = db.getMeal(body.meal.newname);
+            console.log('get meal to update', newMeal)
+
+            var response = {}
+            // if user exists
+            if (newMeal !== undefined) {
+                console.log('meal already exists');
+                response = { status: 404, meal: undefined };
+                respons_func(response);
+            }
+            else {
+                console.log('add meal to db');
+                var rec_meal = { name: body.meal.name, price: body.meal.price, vegetarian: body.meal.vegetarian, vegan: body.meal.vegan, allergic: body.meal.allergic };
+                console.log('recmeal',rec_meal);
+                rec_meal['user_id'] = body.user.email
+                var meal_after_addition = db.addMeal(rec_meal);
+                console.log(meal_after_addition);
+                response = {
+                    status: 200,
+                    meal: { name: meal_after_addition.name, price: meal_after_addition.price, vegetarian: meal_after_addition.vegetarian, vegan: meal_after_addition.vegan, allergic: meal_after_addition.allergic }
+                }
+                respons_func(response);
+            }
         }
 
     }
@@ -104,7 +111,7 @@ export class server {
             }
             else {
                 console.log('add meal to db');
-                var rec_meal = body.meal
+                var rec_meal = body.meal;
                 rec_meal['user_id'] = body.user.email
                 var meal_after_addition = db.addMeal(rec_meal);
                 console.log(meal_after_addition);

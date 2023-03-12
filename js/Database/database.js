@@ -107,4 +107,5 @@ export class db {
         window.localStorage.setItem('meals', JSON.stringify(allMeals));
         return meal;
     }
+    
 }
