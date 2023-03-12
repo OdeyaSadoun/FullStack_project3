@@ -1,4 +1,5 @@
 export class db {
+
     static loadUsers() {
         let usersFromStroge = JSON.parse(window.localStorage.getItem('users'));
         if (usersFromStroge) {
@@ -9,6 +10,7 @@ export class db {
             return {};
         }
     }
+
     static loadMeals() {
         let mealsFromStroge = JSON.parse(window.localStorage.getItem('meals'));
         if (mealsFromStroge) {
@@ -22,7 +24,7 @@ export class db {
 
     static getAllMeals(user_id) {
         var meals = db.loadMeals();
-        console.log(meals)
+        //console.log(meals);
         var result = [];
         for(var value of Object.values(meals)){     
             console.log(value)
@@ -38,7 +40,7 @@ export class db {
         console.log(Object.keys(allMeals).includes(name))
         if (Object.keys(allMeals).includes(name)) {
             var meal = allMeals[name]
-            console.log(meal)
+            //console.log(meal)
             if(meal.user_id === id){
                 return meal;
             }
@@ -51,7 +53,7 @@ export class db {
         console.log(Object.keys(allusers).includes(email))
         if (Object.keys(allusers).includes(email)) {
             var user = allusers[email]
-            console.log(user)
+            //console.log(user)
             if (user.password === password) {
                 return user;
             }
@@ -107,5 +109,4 @@ export class db {
         window.localStorage.setItem('meals', JSON.stringify(allMeals));
         return meal;
     }
-    
 }
