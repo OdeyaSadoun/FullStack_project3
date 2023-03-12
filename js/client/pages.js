@@ -72,6 +72,10 @@ function hideSearchMeal() {
     if (search_element) {
         search_element.style.display = 'none';
     }
+    window.addEventListener('unload', function () {
+        const templateTag = document.querySelector('#search_meal');
+        templateTag.style.display = 'none';
+    });
 }
 
 function showLogin() {
