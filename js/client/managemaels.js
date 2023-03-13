@@ -156,12 +156,13 @@ function updateMeal(name) {
     console.log('update meal- client');
 
 //const mealsList = document.getElementById('meals_list');
-    const meal = document.getElementById('menu');
-    let price = meal.getElementById('price_meal_in_list').value;
-    let newname = meal.getElementById('name_meal_in_list').value;
-    let vegetarian = meal.getElementById('vegetarian_checkbox').checked;
-    let vegan = meal.getElementById('vegan_checkbox').checked;
-    let allergic = meal.getElementById('allergic_checkbox').checked;
+const mealTemplate = document.getElementById('meal-template');
+    const meal_item = mealTemplate.content.cloneNode(true);    console.log(meal);
+    let price = document.getElementById('price_meal_in_list').value;
+    let newname = document.getElementById('name_meal_in_list').value;
+    let vegetarian = document.getElementById('vegetarian_checkbox').checked;
+    let vegan = document.getElementById('vegan_checkbox').checked;
+    let allergic = document.getElementById('allergic_checkbox').checked;
     console.log(price,newname,vegetarian,vegan,allergic);
 
 console.log('new name: ', newname)
@@ -172,6 +173,11 @@ console.log('new name: ', newname)
         console.log('update meal - client');
         console.log(response);
         if (response.status === 200) {
+            const mealsList = document.getElementById('meals_list');
+            const mealsElems = mealsList.querySelectorAll('li');
+            mealsElems.forEach(meal => {
+                mealsList.removeChild(meal);
+            });
             page.showMenuPage();
         }
     };

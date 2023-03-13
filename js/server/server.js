@@ -53,7 +53,7 @@ export class server {
             }
         }
     }
-    
+
     static handle_PUT(resource, body, respons_func) {
         if (resource === '/updateMeal') {
             console.log('delete to update')
@@ -71,8 +71,8 @@ export class server {
                 respons_func(response);
             }
             else {
-                console.log('add meal to db');
-                var rec_meal = { name: body.meal.name, price: body.meal.price, vegetarian: body.meal.vegetarian, vegan: body.meal.vegan, allergic: body.meal.allergic };
+                console.log('add meal to db- update meal');
+                var rec_meal = { name: body.meal.newname, price: body.meal.price, vegetarian: body.meal.vegetarian, vegan: body.meal.vegan, allergic: body.meal.allergic };
                 console.log('recmeal', rec_meal);
                 rec_meal['user_id'] = body.user.email
                 var meal_after_addition = db.addMeal(rec_meal);
@@ -110,7 +110,7 @@ export class server {
                 respons_func(response);
             }
             else {
-                console.log('add meal to db');
+                console.log('add meal to db - add meal');
                 var rec_meal = body.meal;
                 rec_meal['user_id'] = body.user.email
                 var meal_after_addition = db.addMeal(rec_meal);
