@@ -23,7 +23,6 @@ export function addMealToMenu() {
         'server_fullstack3/addMeal',
         { meal: { name: name, price: price, vegetarian: vegetarian, vegan: vegan, allergic: allergic }, user: { email: getLoggedUser().email } });
     req.send();
-
 }
 
 function addMeal(meal) {
@@ -34,12 +33,11 @@ function addMeal(meal) {
     span_name_meal_in_list.textContent = meal.name;
     span_name_meal_in_list.value = meal.name;
     const old_meal_name = meal.name;
-    console.log('old:' , old_meal_name);
+    // console.log('old:' , old_meal_name);
 
     const span_price_meal_in_list = meal_item.getElementById('price_meal_in_list');
     span_price_meal_in_list.textContent = meal.price;
     span_price_meal_in_list.value = meal.price;
-
 
     const vegetarian_checkbox = meal_item.getElementById('vegetarian_checkbox');
     vegetarian_checkbox.textContent = meal.vegetarian;
@@ -54,7 +52,7 @@ function addMeal(meal) {
     allergic_checkbox.checked = meal.allergic;
 
     const view_meal_button = meal_item.getElementById('view_meal_button');
-    console.log(view_meal_button);
+    // console.log(view_meal_button);
     view_meal_button.addEventListener('click', function(){
         viewMeal(span_name_meal_in_list.value);
     });
@@ -69,8 +67,7 @@ function addMeal(meal) {
     delete_meal_button.addEventListener('click',function(){
         deleteMeal(span_name_meal_in_list.value);
     });
-
-      
+   
     mealsList.appendChild(meal_item);
 }
 
@@ -136,7 +133,6 @@ function viewMeal(name) {
 export function searchMeal(name){
     viewMeal(name);
 }
-
 
 function getMeal(name){
     console.log('viewmeal');
