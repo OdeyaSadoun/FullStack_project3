@@ -25,7 +25,6 @@ export class server {
         FXMLhttpRequest.status = 4;
     }
 
-
     static handle_GET(resource, body, respons_func) {
         if (resource === '/getAllMeals') {
             var allMeals = db.getAllMeals(body.user_id);
@@ -54,6 +53,7 @@ export class server {
             }
         }
     }
+    
     static handle_PUT(resource, body, respons_func) {
         if (resource === '/updateMeal') {
             console.log('delete to update')
